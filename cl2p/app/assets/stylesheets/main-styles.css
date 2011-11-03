@@ -1,0 +1,33 @@
+/*Main styles for cl2p */
+
+html {
+	overflow-y: scroll;
+	height:100%;
+}
+
+body {
+	margin: 0px;
+	background-color: #FFEEBB;
+	font-size: 14px;
+	height: 100%;
+	min-height: 500px;
+}
+
+div#header {
+	height: 75px;
+	background-color:#5d5d5d;
+	margin: 0px;
+	display: block;
+	position: fixed;
+	right: 0px;
+	left: 0px;
+	background-image: -webkit-linear-gradient(top, #707070, #5D5D5D);
+	background-repeat: repeat-x;
+}
+
+div#main-container{
+	margin: auto;
+	max-width: 900px;
+	min-width: 600px;
+	padding-top: 80px;
+}
