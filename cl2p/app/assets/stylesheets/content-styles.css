@@ -1,0 +1,20 @@
+/* Styles for typography and stuff not related to the structure of the site */
+h1{
+	font-size: 35px;
+	color: #82eac9;
+}
+
+div.big-input {
+	width:500px;
+	margin: auto;
+}
+
+.big-input-text {
+	height: 30px;
+	width: 300px;
+	font-size: 30px;
+}
+
+b.big-bold{
+	font-size: 30px;
+}

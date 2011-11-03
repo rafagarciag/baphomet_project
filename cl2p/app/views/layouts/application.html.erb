@@ -3,14 +3,18 @@
 <head>
 	<title>Cl2p</title>
 	<%= stylesheet_link_tag    "main-styles" %>
+	<%= stylesheet_link_tag    "content-styles" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="header"><%= render "/general/header"%></div>
+	<%= render "/general/header" %>
+	
 	<div id="main-container">
 		<%= yield %>
 	</div>
+	
+	<%= render "/general/footer" %>
 
 </body>
 </html>
