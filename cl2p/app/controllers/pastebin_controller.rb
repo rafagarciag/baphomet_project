@@ -37,7 +37,7 @@ class PastebinController < ApplicationController
 		@pastebinF = params[:pastebin] #Because @pastebin is not being communicated
 		@pastebin = Pastebin.find(@pastebinF['id']) #Because @pastebin is not being communicated
       		if @pastebin.update_attributes(params[:pastebin])
-			@message = "Succesfully updated."
+			redirect_to :action => 'create', :name => @pastebin['url']
 		else
 			@message = "Error updating."
 		end
