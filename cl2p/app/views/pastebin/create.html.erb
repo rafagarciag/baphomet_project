@@ -1,1 +1,9 @@
 <%= @message %>
+
+<%= form_for @pastebin, :as => :pastebin, :url => { :action => "update" }, :method => :post do |p| %>
+	<%= p.hidden_field :name, { :value => @nameView }%>
+	<%= p.hidden_field :id, { :value => @idView }%>
+	<%= p.text_area :content, { :value => @contentView }%> <br />
+
+	<%= p.submit %>
+<% end %>
