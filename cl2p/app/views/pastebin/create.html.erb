@@ -1,9 +1,26 @@
 <%= @message %>
+<br />
+<% if @pastebin.errors.any? %>
+	<h2><%= pluralize(@pastebin.errors.count, "error") %> prohibited this item from being saved:</h2>
+	<ul>
+	<% @pastebin.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+	</ul>
 
-<%= form_for @pastebin, :as => :pastebin, :url => { :action => "update" }, :method => :post do |p| %>
-	<%= p.hidden_field :name, { :value => @nameView }%>
-	<%= p.hidden_field :id, { :value => @idView }%>
-	<%= p.text_area :content, { :value => @contentView, :size => "100x50" }%> <br />
+<% end %>
 
+<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id }, :method => :post do |p| %>
+	<div class="toolbar" >
+	<select>
+		<option value="plain">Plain text</option>
+		<option value="html">HTML</option>
+		<option value="java">Java</option>
+		<option value="ruby">Ruby</option>
+	</select>
+	</div>
+	<%= p.text_area :content, { :class => "pastebin-input" }%> 
+	<br />
+	<br />
 	<%= p.submit %>
 <% end %>

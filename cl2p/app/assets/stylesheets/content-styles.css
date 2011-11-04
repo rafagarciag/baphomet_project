@@ -1,20 +1,28 @@
-/* Styles for typography and stuff not related to the structure of the site */
-h1{
-	font-size: 35px;
+/* styles for pastebin area */
+
+.pastebin-input{
+	overflow: auto;
+	resize: none;
+	background-color: #999999;
+	font-size: 16px;
+	width: 98%;
+	height: 700px;
 	color: #82eac9;
+	font-weight: bold;
+	-webkit-border-bottom-left-radius: 20px;
+    -moz-border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding:10px;
+    outline: none;	/*remove square when on-focus*/
+    border: 5px solid #82eac9;
 }
 
-div.big-input {
-	width:500px;
-	margin: auto;
-}
-
-.big-input-text {
-	height: 30px;
-	width: 300px;
-	font-size: 30px;
-}
-
-b.big-bold{
-	font-size: 30px;
+div.toolbar{
+	width: 100%;
+	height: 70px;
+	background-color: #999999;
+	border: 5px solid #82eac9;
 }

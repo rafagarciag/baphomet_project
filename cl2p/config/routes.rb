@@ -52,7 +52,7 @@ Cl2p::Application.routes.draw do
  # resources :pastebin
   match '/:name' => 'pastebin#create', :via => :get
   match '/:name' => 'pastebin#update', :via => :post
-  match '/pastebin' => 'pastebin#update', :via => :post
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

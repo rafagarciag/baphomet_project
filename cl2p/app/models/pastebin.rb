@@ -14,9 +14,9 @@ class Pastebin < ActiveRecord::Base
 	#	============================================
 	#	validations
 	#	============================================
-	#	validates length of pastebin name in URL from 1 - 99
-	validates_length_of :url, :minimum => 1, :message => "Pastebin name to short"
-	validates_length_of :url, :maximum => 99, :message => "Pastebin name to long"
+	#	validates length of pastebin name in URL from 1 - 50
+	validates_length_of :url, :minimum => 1, :message => "Pastebin name too short"
+	validates_length_of :url, :maximum => 50, :message => "Pastebin name too long"
 	
 	#	content of pastebin must have at least one character
 	validates_length_of :content, :minimum => 1, :message => "Pastebin content missing"

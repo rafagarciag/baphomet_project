@@ -38,6 +38,8 @@ div#main-container{
 	max-width: 900px;
 	min-width: 600px;
 	padding-top: 80px;
+	padding-left: 5px;
+	padding-right: 15px;
 	background-color: #FFFFFF;
 }
 
@@ -46,4 +48,26 @@ div#footer {
 	max-width: 900px;
 	min-width: 600px;
 	padding-top: 20px;
+}
+
+
+/* Styles for typography and stuff not related to the structure of the site */
+h1{
+	font-size: 35px;
+	color: #82eac9;
+}
+
+div.big-input {
+	width:500px;
+	margin: auto;
+}
+
+.big-input-text {
+	height: 30px;
+	width: 300px;
+	font-size: 30px;
+}
+
+b.big-bold{
+	font-size: 30px;
 }
