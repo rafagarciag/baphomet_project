@@ -12,15 +12,43 @@
 
 <%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id }, :method => :post do |p| %>
 	<div class="toolbar" >
-	<select>
-		<option value="plain">Plain text</option>
-		<option value="html">HTML</option>
-		<option value="java">Java</option>
-		<option value="ruby">Ruby</option>
-	</select>
+		<b>Language:</b>
+		<br />
+		<select>
+			<option value="plain">Plain text</option>
+			<option value="c">C</option>
+			<option value="java">Java</option>
+			<option value="ruby">Ruby</option>
+			<option value="scheme">Scheme</option>
+		</select>
+		<br />
+		<br />
+		<b>Color scheme:</b>
+		<br />
+		<select>
+			<option value="clasic">Classic cl2p</option>
+			<option value="blue">Intense blue</option>
+			<option value="red">Furious red</option>
+			<option value="psychedelic">Psychedelic</option>
+			<option value="bnw">b&w</option>
+		</select>
+		<br />
+		<br />
+		<b>Font size:</b>
+		<br />
+		<select>
+			<option value="normal">Normal</option>
+			<option value="big">Big</option>
+			<option value="bigger">Bigger</option>
+			<option value="enormous">Enormous</option>
+		</select>
+		<br />
+		<br />
+		<input type="checkbox" checked="checked" /> Display line numbers
+		<br />
+		<br />
+		<%= p.submit %>
 	</div>
 	<%= p.text_area :content, { :class => "pastebin-input" }%> 
-	<br />
-	<br />
-	<%= p.submit %>
+	
 <% end %>
