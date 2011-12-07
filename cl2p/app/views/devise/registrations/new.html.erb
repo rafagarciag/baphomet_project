@@ -30,7 +30,28 @@
 	  <%= label :gender, 'F' %>
   </div>
 
+  <div>
+  	<%= f.label :country %><br />
+	<%= f.country_select :country %>
+  </div>
+
+  <div>
+	  I use or want to use this website because...<br />
+	  <%= f.radio_button :whyUse, 'I want to share text' %> 
+	  <%= label :gender, 'I want to share text' %><br />
+	  <%= f.radio_button :whyUse, 'I am a programmer and want to share code with others' %> 
+	  <%= label :gender, 'I am a programmer and want to share code with others' %><br />
+	  <%= f.radio_button :whyUse, 'I am a programmer and want to share code across my own computers' %> 
+	  <%= label :gender, 'I am a programmer and want to share code across my own computers' %><br />
+	  <%= f.radio_button :whyUse, 'I just need an online notepad' %> 
+	  <%= label :gender, 'I just need an online notepad' %><br />
+	  <%= f.radio_button :whyUse, 'Just curious' %> 
+	  <%= label :gender, 'Just curious' %><br />
+	  <%= f.radio_button :whyUse, 'Other', :checked => true %>
+	  <%= label :gender, 'Other' %><br />
+  </div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+
