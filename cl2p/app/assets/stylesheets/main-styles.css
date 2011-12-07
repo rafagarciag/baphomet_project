@@ -29,8 +29,47 @@ div#header {
 div#header-content{
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 0px;
 	max-width: 900px;
 	min-width: 600px;
+	padding: 0px;
+}
+
+div#logo {
+	padding:0px;
+	float: left;
+	margin-top: -17px;
+	min-height: 1px;
+}
+
+#header-links{
+	list-style: none;
+	outline-style: none;
+	background-image: none;
+	display: block;
+	color: #82eac9;
+}
+
+li.header-options{
+	float: right;
+	font-size: 16px;
+	margin-top: 5px;
+	margin-right: 8px;
+	min-width: 60px;
+	text-align: center;
+}
+
+#header-links li:hover{
+	font-weight: bold;
+}
+
+li#sign-out{
+	margin-top: 30px;
+	margin-right: -70px;
+	font-size: 16px;
+	min-width: 60px;
+	text-align: center;
+	float: right;
 }
 
 div#main-container{
@@ -71,3 +110,8 @@ div.big-input {
 b.big-bold{
 	font-size: 30px;
 }
+
+.links:link { color:#82eac9; text-decoration: none; }
+.links:hover { color:#82eac9; text-decoration: none; }
+.links:visited { color:#82eac9; text-decoration: none; }
+.links:active { text-decoration: none; color: #82eac9;}

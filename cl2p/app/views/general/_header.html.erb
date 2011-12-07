@@ -1,5 +1,16 @@
 <div id="header">
 	<div id="header-content">
-		<h1>cl2p.net</h1>
+		<div id="logo" >
+			<h1><a href="/" class="links" >cl2p.net</a></h1>
+		</div>
+		<ul id="header-links">
+			<% if(true) %>
+				<li class="header-options"><a href="/" class="links" >Sign in</a></li>
+				<li class="header-options"><a href="/" class="links" >Sign up</a></li>
+			<% else %>
+				<li class="header-options"> Hello User </li>
+				<li id="sign-out"> Sign out </li>
+			<% end %>
+		</ul>
 	</div>
 </div>

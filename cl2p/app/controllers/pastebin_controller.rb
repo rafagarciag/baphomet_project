@@ -11,7 +11,7 @@ class PastebinController < ApplicationController
 			#create the new pastebin
 			@pastebin = Pastebin.new
 			@pastebin.url = name
-			@pastebin.content = "BLANK"
+			@pastebin.content = "START TYPING HERE"
 
 			#if everything goes perfectly smooth...
 			if @pastebin.save
