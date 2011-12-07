@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
 
   ################# VALIDATIONS BLOCK #################
-  validates_presence_of :username, :message => ": Username missing. Please add one."
+  validates_presence_of :username, :message => " is missing. Please add one."
   #####################################################
 
 end

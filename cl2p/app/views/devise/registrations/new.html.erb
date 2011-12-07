@@ -15,6 +15,21 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <br />
+  <div>The following fields are optional to fill. They will be used for statistical purposes only.<br /></div>
+  <br />
+
+  <div><%= f.label :age %><br />
+  <%= f.text_field :age %></div>
+
+  <div>
+	  <%= f.label :gender %><br />
+	  <%= f.radio_button :gender, 'M', :checked => true %> 
+	  <%= label :gender, 'M' %>
+	  <%= f.radio_button :gender, 'F' %>
+	  <%= label :gender, 'F' %>
+  </div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
