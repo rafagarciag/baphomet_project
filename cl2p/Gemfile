@@ -7,9 +7,8 @@ gem 'therubyracer'
 
 gem 'devise'
 gem 'sqlite3'
-gem 'country-select', path: 'vendor/plugins/rails-country-select' #the select country plugin
+gem 'country-select', :path => 'vendor/plugins/rails-country-select' #the select country plugin
 gem 'json'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
