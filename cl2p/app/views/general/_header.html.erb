@@ -4,12 +4,12 @@
 			<h1><a href="/" class="links" >cl2p.net</a></h1>
 		</div>
 		<ul id="header-links">
-			<% if(true) %>
-				<li class="header-options"><a href="/" class="links" >Sign in</a></li>
-				<li class="header-options"><a href="/" class="links" >Sign up</a></li>
+			<% if !user_signed_in? %>
+				<li class="header-options"><%= link_to "Sign up", new_user_registration_path, :class => 'links' %></li>
+				<li class="header-options"><%= link_to "Sign in", new_user_session_path, :class => 'links' %></li>
 			<% else %>
-				<li class="header-options"> Hello User </li>
-				<li id="sign-out"> Sign out </li>
+				<li class="header-options"> Hello <%= current_user.username %> </li>
+				<li id="sign-out"> <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'links' %> </li>
 			<% end %>
 		</ul>
 	</div>
