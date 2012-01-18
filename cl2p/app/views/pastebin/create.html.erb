@@ -1,7 +1,77 @@
 <%= @message %>
 
+<script language="Javascript" type="text/javascript" src="../../assets/javascripts/edit_area/edit_area_full.js"></script>
 <script type="text/javascript">
    
+	// initialisation
+	editAreaLoader.init({
+		id: "example_1"	// id of the textarea to transform		
+		,start_highlight: true	// if start with highlight
+		,allow_resize: "false"
+		,allow_toggle: true
+		,word_wrap: true
+		,language: "en"
+		,syntax: "java"	
+	});
+
+	// callback functions
+	function my_save(id, content){
+		alert("Here is the content of the EditArea '"+ id +"' as received by the save callback function:\n"+content);
+	}
+		
+	function my_load(id){
+		editAreaLoader.setValue(id, "The content is loaded from the load_callback function into EditArea");
+	}
+		
+	function test_setSelectionRange(id){
+		editAreaLoader.setSelectionRange(id, 100, 150);
+	}
+		
+	function test_getSelectionRange(id){
+		var sel =editAreaLoader.getSelectionRange(id);
+		alert("start: "+sel["start"]+"\nend: "+sel["end"]); 
+	}
+		
+	function test_setSelectedText(id){
+		text= "[REPLACED SELECTION]"; 
+		editAreaLoader.setSelectedText(id, text);
+	}
+		
+	function test_getSelectedText(id){
+		alert(editAreaLoader.getSelectedText(id)); 
+	}
+	
+	function editAreaLoaded(id){
+		if(id=="example_2")
+		{
+			open_file1();
+			open_file2();
+		}
+	}
+	
+	function open_file1()
+	{
+		var new_file= {id: "to\\ é # € to", text: "$authors= array();\n$news= array();", syntax: 'php', title: 'beautiful title'};
+		editAreaLoader.openFile('example_2', new_file);
+	}
+	
+	function open_file2()
+	{
+		var new_file= {id: "Filename", text: "<a href=\"toto\">\n\tbouh\n</a>\n<!-- it's a comment -->", syntax: 'html'};
+		editAreaLoader.openFile('example_2', new_file);
+	}
+	
+	function close_file1()
+	{
+		editAreaLoader.closeFile('example_2', "to\\ é # € to");
+	}
+	
+	function toogle_editable(id)
+	{
+		editAreaLoader.execCommand(id, 'set_editable', !editAreaLoader.execCommand(id, 'is_editable'));
+	}
+
+	//OLD CODE
    var lineObjOffsetTop = 2;
    
    function createTextAreaWithLines(id)
@@ -100,7 +170,7 @@
 		<br />
 		<%= p.submit %>
 	</div>
-	<%= p.text_area :content, { :id => "codeTextarea", :wrap => "off" }%> 
+	<%= p.text_area :content, { :id => "example_1", :wrap => "off" }%> 
 	<script type="text/javascript">
 		createTextAreaWithLines('codeTextarea');
 	</script>
