@@ -1,1 +1,1 @@
-alert("test2.js is loaded from test plugin");
+//alert("test2.js is loaded from test plugin");

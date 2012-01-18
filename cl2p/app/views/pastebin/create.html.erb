@@ -16,7 +16,7 @@
 
 	// callback functions
 	function my_save(id, content){
-		alert("Here is the content of the EditArea '"+ id +"' as received by the save callback function:\n"+content);
+		//alert("Here is the content of the EditArea '"+ id +"' as received by the save callback function:\n"+content);
 	}
 		
 	function my_load(id){
@@ -29,7 +29,7 @@
 		
 	function test_getSelectionRange(id){
 		var sel =editAreaLoader.getSelectionRange(id);
-		alert("start: "+sel["start"]+"\nend: "+sel["end"]); 
+		//alert("start: "+sel["start"]+"\nend: "+sel["end"]); 
 	}
 		
 	function test_setSelectedText(id){
@@ -38,7 +38,7 @@
 	}
 		
 	function test_getSelectedText(id){
-		alert(editAreaLoader.getSelectedText(id)); 
+		//alert(editAreaLoader.getSelectedText(id)); 
 	}
 	
 	function editAreaLoaded(id){
