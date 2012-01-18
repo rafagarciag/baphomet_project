@@ -1,23 +1,41 @@
 /* styles for pastebin area */
 
-.pastebin-input{
-	overflow: auto;
+#codeTextarea{
+	overflow: scroll;
+	overflow-y: scroll; 
+	overflow-x: scroll;
 	resize: none;
 	background-color: #999999;
 	font-size: 16px;
-	width: 98%;
-	height: 700px;
+	width: 94%;
+	height: 400px;
 	color: #82eac9;
 	font-weight: bold;
 	-webkit-border-bottom-left-radius: 20px;
-    -moz-border-bottom-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    -webkit-border-bottom-right-radius: 20px;
-    -moz-border-bottom-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding:10px;
-    outline: none;	/*remove square when on-focus*/
-    border: 5px solid #82eac9;
+	-moz-border-bottom-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	-moz-border-bottom-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	padding:10px;
+	outline: none;	/*remove square when on-focus*/
+		
+}
+.textAreaWithLines{     
+	font-size: 16px;
+	font-weight: bold;
+	font-family: monospace;
+	border:1px solid #999999;      
+}
+
+.textAreaWithLines textarea,.textAreaWithLines div{
+	padding-top: 10px;
+	border:0px;
+	font-size:16px;
+}
+
+.lineObj{
+	color:#999999;
 }
 
 div.toolbar{
@@ -25,4 +43,8 @@ div.toolbar{
 	/*height: 70px;*/
 	background-color: #999999;
 	border: 5px solid #82eac9;
+}
+
+textarea{
+	font-family: monospace;
 }

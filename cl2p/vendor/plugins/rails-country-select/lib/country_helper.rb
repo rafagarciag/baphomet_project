@@ -10,10 +10,10 @@ module ActionView
         options[:values]  = :nums  unless options.has_key?(:values)
 
         potential = {
-          names:   COUNTRY_NAMES,
-          nums:    COUNTRY_NUMS,
-          alpha2s: COUNTRY_ALPHA2S,
-          alpha3s: COUNTRY_ALPHA3S
+          :names =>   COUNTRY_NAMES,
+          :nums => COUNTRY_NUMS,
+          :alpha2s => COUNTRY_ALPHA2S,
+          :alpha3s => COUNTRY_ALPHA3S
         }
 
         select_options = potential[options[:keys]].zip(potential[options[:values]])
@@ -24,7 +24,7 @@ module ActionView
 
     class FormBuilder
       def country_select(method, options = {}, html_options = {})
-        @template.country_select(@object_name, method, options.merge({object: @object}), html_options)
+        @template.country_select(@object_name, method, options.merge({:object => @object}), html_options)
       end
     end
   end
