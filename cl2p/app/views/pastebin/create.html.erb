@@ -5,13 +5,17 @@
    
 	// initialisation
 	editAreaLoader.init({
-		id: "example_1"	// id of the textarea to transform		
+		id: "pastebinText"	// id of the textarea to transform		
 		,start_highlight: true	// if start with highlight
 		,allow_resize: "false"
 		,allow_toggle: true
 		,word_wrap: true
 		,language: "en"
 		,syntax: "java"	
+		,min_width: 910
+		,min_height: 600
+		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document, load, save, |, search, go_to_line, undo, redo, |, highlight, word_wrap"
+		,font_size: 12
 	});
 
 	// callback functions
@@ -135,17 +139,6 @@
 
 <%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id }, :method => :post do |p| %>
 	<div class="toolbar" >
-		<b>Language:</b>
-		<br />
-		<select>
-			<option value="plain">Plain text</option>
-			<option value="c">C</option>
-			<option value="java">Java</option>
-			<option value="ruby">Ruby</option>
-			<option value="scheme">Scheme</option>
-		</select>
-		<br />
-		<br />
 		<b>Color scheme:</b>
 		<br />
 		<select>
@@ -154,16 +147,6 @@
 			<option value="red">Furious red</option>
 			<option value="psychedelic">Psychedelic</option>
 			<option value="bnw">b&w</option>
-		</select>
-		<br />
-		<br />
-		<b>Font size:</b>
-		<br />
-		<select>
-			<option value="normal">Normal</option>
-			<option value="big">Big</option>
-			<option value="bigger">Bigger</option>
-			<option value="enormous">Enormous</option>
 		</select>
 		<br />
 		<br />
@@ -176,7 +159,7 @@
 		<br />
 		<%= p.submit %>
 	</div>
-	<%= p.text_area :content, { :id => "example_1", :wrap => "off" }%> 
+	<%= p.text_area :content, { :id => "pastebinText", :wrap => "off" }%> 
 	<script type="text/javascript">
 		createTextAreaWithLines('codeTextarea');
 	</script>
