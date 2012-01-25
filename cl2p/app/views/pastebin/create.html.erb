@@ -11,7 +11,23 @@
 		,allow_toggle: false
 		,word_wrap: true
 		,language: "en"
-		,syntax: "java"	
+		,syntax: "Java"	
+		,min_width: 910
+		,min_height: 600
+		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
+		,font_size: 14
+	});
+
+	// disabled Pastebin
+	editAreaLoader.init({
+		id: "disabledPastebin"		
+		,start_highlight: true
+		,allow_resize: "false"
+		,allow_toggle: false
+		,word_wrap: true
+		,language: "en"
+		,syntax: "Java"	
+		,is_editable: false	
 		,min_width: 910
 		,min_height: 600
 		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, help, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
@@ -88,28 +104,41 @@
 
 <% end %>
 
-<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id }, :method => :post do |p| %>
-	<div class="toolbar" >
-		<b>Color scheme:</b>
-		<br />
-		<select>
-			<option value="clasic">Classic cl2p</option>
-			<option value="blue">Intense blue</option>
-			<option value="red">Furious red</option>
-			<option value="psychedelic">Psychedelic</option>
-			<option value="bnw">b&w</option>
-		</select>
-		<br />
-		<br />
-		<%= p.check_box :visible %> <%= p.label :visible, "Visible to others" %>
-		<br />
-		<br />
-		<%= p.check_box :editable %> <%= p.label :editable, "Editable by others" %>
-		<br />
-		<br />
-		<br />
-		<%= p.submit %>
-	</div>
-	<%= p.text_area :content, { :id => "pastebinText", :wrap => "off", :style => "visibility:hidden" }%> 
-	
+<% if user_signed_in? %>
+	<% userId = current_user.id %>
+<% else %>
+	<% userId = nil %>
+<% end %>
+
+<% if userId == @pastebin.user_id || @pastebin.editable %>
+	<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id, :userId => userId }, :method => :post do |p| %>
+		<% if userId == @pastebin.user_id || @pastebin.visible %>
+			<div class="toolbar" >
+				<b>Color scheme:</b>
+				<br />
+				<select>
+					<option value="clasic">Classic cl2p</option>
+					<option value="blue">Intense blue</option>
+					<option value="red">Furious red</option>
+					<option value="psychedelic">Psychedelic</option>
+					<option value="bnw">b&w</option>
+				</select>
+				<br />
+				<br />
+				<%= p.check_box :visible %> <%= p.label :visible, "Visible to others" %>
+				<br />
+				<br />
+				<%= p.check_box :editable %> <%= p.label :editable, "Editable by others" %>
+				<br />
+				<br />
+				<br />
+				<%= p.submit %>
+			</div>
+			<%= p.text_area :content, { :id => "pastebinText", :wrap => "off", :style => "visibility:hidden" }%> 
+		<% else %>
+			<b>You are unable to see this pastebin.</b>
+		<% end %>
+	<% end %>
+<% else %>
+	<textarea id="disabledPastebin" style="visibility:hidden"><%= @pastebin.content %></textarea>
 <% end %>
