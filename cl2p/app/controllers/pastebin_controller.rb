@@ -39,11 +39,13 @@ class PastebinController < ApplicationController
 	def update
 
 		@pastebin = Pastebin.find(params[:id]) 
-
+		puts "======================================================\n\n========================================================POLLON   "+params[:userId]
 		respond_to do |format|
 			if @pastebin.update_attributes(params[:pastebin])
 				if @pastebin.user_id.nil? && ( !@pastebin.visible || !@pastebin.editable )
 					@pastebin.update_attributes(:user_id => params[:userId])
+				elsif !@pastebin.user_id.nil? && @pastebin.visible && @pastebin.editable 
+					@pastebin.update_attributes(:user_id => nil)					
 				end
 				format.html { redirect_to :action => 'create', :name => @pastebin['url'] }
 			else

@@ -2,7 +2,7 @@ class Pastebin < ActiveRecord::Base
 	#	============================================
 	#	What can be accessed by other classes
 	#	============================================
-	attr_accessible :url, :content, :editable, :visible
+	attr_accessible :url, :content, :editable, :visible, :user_id
 	
 	
 	#	============================================
