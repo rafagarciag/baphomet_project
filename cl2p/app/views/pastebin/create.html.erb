@@ -8,14 +8,14 @@
 		id: "pastebinText"	// id of the textarea to transform		
 		,start_highlight: true	// if start with highlight
 		,allow_resize: "false"
-		,allow_toggle: true
+		,allow_toggle: false
 		,word_wrap: true
 		,language: "en"
-		,syntax: "java"	
+		,syntax: ""	
 		,min_width: 910
 		,min_height: 600
-		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document, load, save, |, search, go_to_line, undo, redo, |, highlight, word_wrap"
-		,font_size: 12
+		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
+		,font_size: 14
 	});
 
 	// callback functions
@@ -75,55 +75,6 @@
 		editAreaLoader.execCommand(id, 'set_editable', !editAreaLoader.execCommand(id, 'is_editable'));
 	}
 
-	//OLD CODE
-   var lineObjOffsetTop = 2;
-   
-   function createTextAreaWithLines(id)
-   {
-      var el = document.createElement('DIV');
-      var ta = document.getElementById(id);
-      ta.parentNode.insertBefore(el,ta);
-      el.appendChild(ta);
-      
-      el.className='textAreaWithLines';
-      el.style.width = (ta.offsetWidth + 30) + 'px';
-      ta.style.position = 'absolute';
-      ta.style.left = '40px';
-      el.style.height = (ta.offsetHeight + 2) + 'px';
-      el.style.overflow='hidden';
-      el.style.position = 'relative';
-      el.style.width = (ta.offsetWidth + 40) + 'px';
-      var lineObj = document.createElement('DIV');
-      lineObj.style.position = 'absolute';
-      lineObj.style.top = lineObjOffsetTop + 'px';
-      lineObj.style.left = '0px';
-      lineObj.style.width = '27px';
-      el.insertBefore(lineObj,ta);
-      lineObj.style.textAlign = 'right';
-      lineObj.className='lineObj';
-      var string = '';
-      for(var no=1;no<10002;no++){
-         if(string.length>0)string = string + '<br>';
-         string = string + no;
-      }
-      
-      ta.onkeydown = function() { positionLineObj(lineObj,ta); };
-      ta.onmousedown = function() { positionLineObj(lineObj,ta); };
-      ta.onscroll = function() { positionLineObj(lineObj,ta); };
-      ta.onblur = function() { positionLineObj(lineObj,ta); };
-      ta.onfocus = function() { positionLineObj(lineObj,ta); };
-      ta.onmouseover = function() { positionLineObj(lineObj,ta); };
-      lineObj.innerHTML = string;
-      
-   }
-   
-   function positionLineObj(obj,ta)
-   {
-      obj.style.top = (ta.scrollTop * -1 + lineObjOffsetTop) + 'px';   
-   
-      
-   }
-   
 </script>
 
 <br />
@@ -159,9 +110,6 @@
 		<br />
 		<%= p.submit %>
 	</div>
-	<%= p.text_area :content, { :id => "pastebinText", :wrap => "off" }%> 
-	<script type="text/javascript">
-		createTextAreaWithLines('codeTextarea');
-	</script>
+	<%= p.text_area :content, { :id => "pastebinText", :wrap => "off", :style => "visibility:hidden" }%> 
 	
 <% end %>
