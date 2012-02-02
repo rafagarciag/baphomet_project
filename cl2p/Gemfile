@@ -13,6 +13,9 @@ gem 'json'
 #Gem for Facebook authentication
 gem "omniauth-facebook" 
 
+#Gem for Twitter authentication
+gem 'omniauth-twitter'
+
 
 
 # Gems used only for assets and not required
