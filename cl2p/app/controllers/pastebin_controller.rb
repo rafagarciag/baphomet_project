@@ -23,7 +23,7 @@ class PastebinController < ApplicationController
 		#Edit method
 		else
 			@pastebin = Pastebin.find_by_url(name)
-			@message = "You are editing someone elses pastebin #{name}"
+			@message = "#{name}"
 		end
 
 		#validates the homepage creation of a pastebin, which uses a special /new/:new route.
@@ -39,11 +39,13 @@ class PastebinController < ApplicationController
 	def update
 
 		@pastebin = Pastebin.find(params[:id]) 
-
+		puts "======================================================\n\n========================================================POLLON   "+params[:userId]
 		respond_to do |format|
 			if @pastebin.update_attributes(params[:pastebin])
 				if @pastebin.user_id.nil? && ( !@pastebin.visible || !@pastebin.editable )
 					@pastebin.update_attributes(:user_id => params[:userId])
+				elsif !@pastebin.user_id.nil? && @pastebin.visible && @pastebin.editable 
+					@pastebin.update_attributes(:user_id => nil)					
 				end
 				format.html { redirect_to :action => 'create', :name => @pastebin['url'] }
 			else

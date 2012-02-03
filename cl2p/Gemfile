@@ -9,6 +9,17 @@ gem 'devise'
 gem 'sqlite3'
 gem 'country-select', :path => 'vendor/plugins/rails-country-select' #the select country plugin
 gem 'json'
+
+#Gem for Facebook authentication
+gem "omniauth-facebook" 
+
+#Gem for Twitter authentication
+gem 'omniauth-twitter'
+
+#Gem for Github authentication
+gem 'omniauth-github'
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
