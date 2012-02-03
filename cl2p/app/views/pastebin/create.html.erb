@@ -30,7 +30,7 @@
 		,is_editable: false	
 		,min_width: 910
 		,min_height: 600
-		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, help, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
+		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
 		,font_size: 14
 	});
 
@@ -94,6 +94,10 @@
 </script>
 
 <br />
+
+
+
+
 <% if @pastebin.errors.any? %>
 	<h2><%= pluralize(@pastebin.errors.count, "error") %> prohibited this item from being saved:</h2>
 	<ul>
@@ -114,6 +118,21 @@
 	<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id, :userId => userId }, :method => :post do |p| %>
 		<% if userId == @pastebin.user_id || @pastebin.visible %>
 			<div class="toolbar" >
+				<br />
+				<a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out my 8copy!" data-hashtags="8copy">Tweet</a>
+				<script>
+					!function(d,s,id){
+						var js,fjs=d.getElementsByTagName(s)[0];
+						if(!d.getElementById(id)){
+							js=d.createElement(s);
+							js.id=id;
+							js.src="//platform.twitter.com/widgets.js";
+							fjs.parentNode.insertBefore(js,fjs);
+						}
+					}(document,"script","twitter-wjs");
+				</script>
+				<br />
+				<br />
 				<b>Color scheme:</b>
 				<br />
 				<select>
@@ -123,14 +142,16 @@
 					<option value="psychedelic">Psychedelic</option>
 					<option value="bnw">b&w</option>
 				</select>
-				<br />
-				<br />
-				<%= p.check_box :visible %> <%= p.label :visible, "Visible to others" %>
-				<br />
-				<br />
-				<%= p.check_box :editable %> <%= p.label :editable, "Editable by others" %>
-				<br />
-				<br />
+				<% if user_signed_in? %>
+					<br />
+					<br />
+					<%= p.check_box :visible %> <%= p.label :visible, "Visible to others" %>
+					<br />
+					<br />
+					<%= p.check_box :editable %> <%= p.label :editable, "Editable by others" %>
+					<br />
+					<br />
+				<% end %>
 				<br />
 				<%= p.submit %>
 			</div>

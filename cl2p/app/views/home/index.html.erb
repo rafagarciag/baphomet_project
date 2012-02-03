@@ -1,11 +1,41 @@
-<h2><%= @message %></h2>
-<br />
-<br />
-<div class="big-input">
+
+<div class="hero-unit">
+
+	<div class="big-input">
 		<%= form_tag("/new/n", :url => { :controller => 'pastebin', :action => 'create'}, :method => "post") do %>
-			<b class="big-bold"><%= label_tag(:name, "cl2p.net/") %></b>
-			<b class="big-input-text"><%= text_field_tag(:name) %></b>
-			<%= submit_tag("UNLEASH THE FUTURE!") %>
+			
+			<%= text_field_tag 'name', nil, :class => 'big-input-text' %>
+			<%= submit_tag "GO!", :class =>'big-button' %>
 		<% end %>
+	</div>
+	<br />
+	<br />
+	
+	
 </div>
+<br />
+<br />
+<h1>New to 8copy? </h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla luctus eleifend. Donec fringilla ultrices orci. Fusce tempus venenatis ipsum vitae molestie. Integer non libero ut mauris pellentesque scelerisque. In gravida euismod ante ac gravida. Donec convallis nisl mauris, at consectetur risus. Nullam eu leo non enim accumsan ultricies cursus a tortor. Fusce aliquet congue porttitor. Maecenas vel nisl diam, ut placerat nunc. Praesent sodales auctor facilisis. Vivamus eu est nibh, vel tristique ante. Cras vehicula mauris vitae magna lobortis rhoncus.</p>
+
+<p>Vestibulum dolor orci, condimentum nec adipiscing non, tempus consectetur nulla. Curabitur hendrerit eros sit amet augue vestibulum ut tempor nibh fermentum. Aliquam iaculis dignissim tellus, at suscipit neque elementum ut. Quisque placerat purus at metus adipiscing non mattis metus sollicitudin. Aliquam rhoncus ante eu turpis dictum semper. Sed non pretium mi. Nulla ullamcorper, magna nec iaculis euismod, erat lectus elementum neque, eget lacinia mi tortor quis tortor. Donec sed justo diam. Cras lobortis, ipsum non porttitor sodales, est mi pulvinar lectus, vitae sollicitudin tellus enim nec ligula. Integer ullamcorper, ante sit amet semper pharetra, augue lacus gravida lacus, nec interdum tellus dolor vitae nulla. Donec ut ipsum dolor. Proin aliquet tellus in libero facilisis rutrum posuere ante euismod. Vestibulum eget elit urna, sed tempus enim. Vivamus bibendum odio quis orci varius sit amet tristique ante eleifend.</p>
+
+<p>Aenean lobortis rhoncus semper. Sed libero dui, tempus sit amet interdum eu, consequat sit amet neque. Fusce suscipit, elit id faucibus sollicitudin, felis purus convallis nulla, at porta sem odio a magna. Praesent elementum vestibulum ligula, at interdum purus euismod a. Proin cursus sem in nisi egestas sit amet dictum sapien bibendum. Pellentesque quam est, suscipit vitae lacinia bibendum, malesuada nec libero. Vivamus commodo convallis urna nec semper.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla luctus eleifend. Donec fringilla ultrices orci. Fusce tempus venenatis ipsum vitae molestie. Integer non libero ut mauris pellentesque scelerisque. In gravida euismod ante ac gravida. Donec convallis nisl mauris, at consectetur risus. Nullam eu leo non enim accumsan ultricies cursus a tortor. Fusce aliquet congue porttitor. Maecenas vel nisl diam, ut placerat nunc. Praesent sodales auctor facilisis. Vivamus eu est nibh, vel tristique ante. Cras vehicula mauris vitae magna lobortis rhoncus.</p>
+<br />
+
+<h1>How should I pronounce it? </h1>
+<p>Vestibulum dolor orci, condimentum nec adipiscing non, tempus consectetur nulla. Curabitur hendrerit eros sit amet augue vestibulum ut tempor nibh fermentum. Aliquam iaculis dignissim tellus, at suscipit neque elementum ut. Quisque placerat purus at metus adipiscing non mattis metus sollicitudin. Aliquam rhoncus ante eu turpis dictum semper. Sed non pretium mi. Nulla ullamcorper, magna nec iaculis euismod, erat lectus elementum neque, eget lacinia mi tortor quis tortor. Donec sed justo diam. Cras lobortis, ipsum non porttitor sodales, est mi pulvinar lectus, vitae sollicitudin tellus enim nec ligula. Integer ullamcorper, ante sit amet semper pharetra, augue lacus gravida lacus, nec interdum tellus dolor vitae nulla. Donec ut ipsum dolor. Proin aliquet tellus in libero facilisis rutrum posuere ante euismod. Vestibulum eget elit urna, sed tempus enim. Vivamus bibendum odio quis orci varius sit amet tristique ante eleifend.</p>
+
+<p>Aenean lobortis rhoncus semper. Sed libero dui, tempus sit amet interdum eu, consequat sit amet neque. Fusce suscipit, elit id faucibus sollicitudin, felis purus convallis nulla, at porta sem odio a magna. Praesent elementum vestibulum ligula, at interdum purus euismod a. Proin cursus sem in nisi egestas sit amet dictum sapien bibendum. Pellentesque quam est, suscipit vitae lacinia bibendum, malesuada nec libero. Vivamus commodo convallis urna nec semper.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla luctus eleifend. Donec fringilla ultrices orci. Fusce tempus venenatis ipsum vitae molestie. Integer non libero ut mauris pellentesque scelerisque. In gravida euismod ante ac gravida. Donec convallis nisl mauris, at consectetur risus. Nullam eu leo non enim accumsan ultricies cursus a tortor. Fusce aliquet congue porttitor. Maecenas vel nisl diam, ut placerat nunc. Praesent sodales auctor facilisis. Vivamus eu est nibh, vel tristique ante. Cras vehicula mauris vitae magna lobortis rhoncus.</p>
+
+<br />
+<h1> What is that crazy mascot, is that a living box? </h1>
+
+<p>Vestibulum dolor orci, condimentum nec adipiscing non, tempus consectetur nulla. Curabitur hendrerit eros sit amet augue vestibulum ut tempor nibh fermentum. Aliquam iaculis dignissim tellus, at suscipit neque elementum ut. Quisque placerat purus at metus adipiscing non mattis metus sollicitudin. Aliquam rhoncus ante eu turpis dictum semper. Sed non pretium mi. Nulla ullamcorper, magna nec iaculis euismod, erat lectus elementum neque, eget lacinia mi tortor quis tortor. Donec sed justo diam. Cras lobortis, ipsum non porttitor sodales, est mi pulvinar lectus, vitae sollicitudin tellus enim nec ligula. Integer ullamcorper, ante sit amet semper pharetra, augue lacus gravida lacus, nec interdum tellus dolor vitae nulla. Donec ut ipsum dolor. Proin aliquet tellus in libero facilisis rutrum posuere ante euismod. Vestibulum eget elit urna, sed tempus enim. Vivamus bibendum odio quis orci varius sit amet tristique ante eleifend.</p>
+
+<p>Aenean lobortis rhoncus semper. Sed libero dui, tempus sit amet interdum eu, consequat sit amet neque. Fusce suscipit, elit id faucibus sollicitudin, felis purus convallis nulla, at porta sem odio a magna. Praesent elementum vestibulum ligula, at interdum purus euismod a. Proin cursus sem in nisi egestas sit amet dictum sapien bibendum. Pellentesque quam est, suscipit vitae lacinia bibendum, malesuada nec libero. Vivamus commodo convallis urna nec semper.</p>
 

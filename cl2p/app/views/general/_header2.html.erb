@@ -1,0 +1,16 @@
+<div class="topbar">
+	<div class="fill">
+		<div class="container">
+			<h3><a class"brand" href="/">8Copy</a></h3>
+			<ul class="nav secondary-nav">
+				<% if !user_signed_in? %>
+					<li><%= link_to "Sign up", new_user_registration_path, :class => 'links' %></li>
+					<li><%= link_to "Sign in", new_user_session_path, :class => 'links' %></li>
+				<% else %>
+					<li> Hello <%= current_user.username %> </li>
+					<li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'links' %> </li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>

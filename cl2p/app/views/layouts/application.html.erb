@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>cl2p</title>
-	<%= stylesheet_link_tag    "main-styles" %>
-	<%= stylesheet_link_tag    "content-styles" %>
+	<title>8copy</title>
+
+	<%= stylesheet_link_tag 	"bootstrap_1.4.0.css" %>
+	<%= stylesheet_link_tag 	"main-styles-1.1.css" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render "/general/header" %>
-	
-	<div id="main-container">
-		<%= yield %>
-	</div>
-	
-	<%= render "/general/footer" %>
+	<%= render "/general/header2" %>
 
+	<div class="container">
+		<div class="content">
+			<%= yield %>
+		</div>
+		
+	</div>
+	<%= image_tag("star-ninja.jpg", :alt => "Hello!", :class=>"ninja") %>
+	<%= render "/general/footer" %>
 </body>
 </html>

@@ -91,14 +91,11 @@ div#footer {
 
 
 /* Styles for typography and stuff not related to the structure of the site */
-h1{
-	font-size: 35px;
-	color: #82eac9;
-}
+
 
 div.big-input {
-	width:500px;
-	margin: auto;
+	width:400px;
+	margin: 0 auto;
 }
 
 .big-input-text {
@@ -107,8 +104,9 @@ div.big-input {
 	font-size: 30px;
 }
 
-b.big-bold{
+.big-bold{
 	font-size: 30px;
+	font-weight:bold;
 }
 
 .links:link { color:#82eac9; text-decoration: none; }
