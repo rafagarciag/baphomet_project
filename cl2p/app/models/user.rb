@@ -54,4 +54,14 @@ class User < ActiveRecord::Base
   	end
   end
 
+  # Finds or creates a user who logs in using github
+  def self.find_for_github_oauth(access_token, signed_in_resource=nil)
+  	data = access_token.extra.raw_info
+  	if user = User.where(:email => data.login+"@"+"github.com").first
+    		user
+  	else # Create a user with a stub password. 
+    		User.create!(:username => data.login, :email => data.login+"@"+"github.com", :password => Devise.friendly_token[0,20]) 
+  	end
+  end
+
 end

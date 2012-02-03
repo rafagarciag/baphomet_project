@@ -16,6 +16,8 @@ gem "omniauth-facebook"
 #Gem for Twitter authentication
 gem 'omniauth-twitter'
 
+#Gem for Github authentication
+gem 'omniauth-github'
 
 
 # Gems used only for assets and not required
