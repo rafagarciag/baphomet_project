@@ -44,4 +44,14 @@ class User < ActiveRecord::Base
   	end
   end
 
+  # Finds or creates a user who logs in using twitter
+  def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
+  	data = access_token.extra.raw_info
+  	if user = User.where(:email => data.email).first
+    		user
+  	else # Create a user with a stub password. 
+    		User.create!(:username => data.screen_name, :email => data.screen_name+"@"+"twitter.com", :password => Devise.friendly_token[0,20]) 
+  	end
+  end
+
 end

@@ -5,6 +5,9 @@ Devise.setup do |config|
   #OMNIAUTH CONFIGURATION
   require "omniauth-facebook"
   config.omniauth :facebook, "358319847529237", "aaf21fe54da124c9c2c4a29d3cfcc944",:scope => 'email,offline_access,read_stream', :display => 'page'
+  
+  require "omniauth-twitter"
+  config.omniauth :twitter, "2I7kzG7fZkfZ7WdX8BFCMQ", "ntHAv4EkrfAMkXSXvjm2pLSaubwIySdB9p6vj2GI" 
 
 
   # ==> Mailer Configuration
