@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+/home/guayo/Desktop/baphomet_project/android/.metadata/.plugins/org.eclipse.jdt.core
-871399345.index
-3114131972.index
