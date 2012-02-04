@@ -478,3 +478,31 @@ java.lang.NullPointerException
 	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+!SESSION 2012-02-04 00:34:16.797 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2012-02-04 00:34:38.142
+!MESSAGE DDMS files not found: /home/guayo/dev/eclipse/platform-tools/adb /home/guayo/dev/eclipse/tools/hprof-conv /home/guayo/dev/eclipse/tools/traceview 
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-04 00:34:51.543
+!MESSAGE Error changing index details workspace://
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-04 00:34:51.545
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-04 00:34:51.549
+!MESSAGE Error changing index details file:/home/guayo/.m2/repository/
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-04 00:34:51.550
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-04 00:34:51.574
+!MESSAGE Error changing index details central|http://repo1.maven.org/maven2
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-04 00:34:51.575
+!MESSAGE Could not add repository index

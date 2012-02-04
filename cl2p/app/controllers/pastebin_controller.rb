@@ -23,7 +23,7 @@ class PastebinController < ApplicationController
 		#Edit method
 		else
 			@pastebin = Pastebin.find_by_url(name)
-			@message = "You are editing someone elses pastebin #{name}"
+			@message = "#{name}"
 		end
 
 		#validates the homepage creation of a pastebin, which uses a special /new/:new route.

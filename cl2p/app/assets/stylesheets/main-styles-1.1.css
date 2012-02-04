@@ -1,0 +1,58 @@
+/* Styles for typography and stuff not related to the structure of the site */
+
+html{
+	height:99%;
+}
+
+body{
+	height:99%;
+	background-color: #3ebbfd;
+	background-repeat: no-repeat;
+}
+
+div.big-input {
+	width:370px;
+	margin: 0 auto;
+}
+
+.big-input-text {
+	height: 40px;
+	width: 300px;
+	font-size: 30px;
+}
+
+.big-bold{
+	font-size: 30px;
+	font-weight:bold;
+}
+
+
+div#footer{
+	height:120px;
+	width:100%;
+	position:relative;
+	bottom:0px;
+	margin:0px auto;
+	background-color: #3ebb99;
+}
+
+.ninja{
+	position: relative;
+	display: inline;
+	margin-left: 1200px;
+}
+
+/*Overwritting Bootstrap*/
+input[type="submit"].big-button{
+	font-size:20px;
+	width:50px;
+	height: 40px;
+}
+
+div.container{
+	min-height:95%;
+}
+
+.hero-unit{
+	background-color: #6e322a;
+}
