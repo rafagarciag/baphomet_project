@@ -1,0 +1,98 @@
+package com.baphomet.octocopy;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class MainActivity extends Activity implements OnClickListener {
+    /** Called when the activity is first created. */
+	
+	private EditText query;
+	private EditText nombre;
+	private EditText num;
+	private EditText numberer;
+	private Button busqueda;
+	private Button save;
+	private String datosJSON;
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+            
+        query = (EditText)findViewById(R.id.nombre_clip);
+        busqueda = (Button)findViewById(R.id.busqueda);
+        nombre = (EditText)findViewById(R.id.nombre);
+        num = (EditText)findViewById(R.id.num);
+        numberer = (EditText)findViewById(R.id.numberer);
+        save = (Button)findViewById(R.id.save);
+        
+        busqueda.setOnClickListener(this);
+        save.setOnClickListener(this);
+        
+        
+    }
+    
+    //@Override
+	public void onClick(View v) {
+		//Log.e("onClick","ClickListener is working");			
+		switch(v.getId()){
+		case R.id.busqueda:
+			
+			datosJSON = lecturaJSON(query.getText().toString());
+			nombre.setVisibility(View.VISIBLE);
+			nombre.setText(datosJSON);
+			break;
+		
+		}
+	}
+	
+	public String lecturaJSON(String nombre) {
+		StringBuilder builder = new StringBuilder();
+		HttpClient client = new DefaultHttpClient();
+		HttpGet httpGet = new HttpGet(
+				"http://droidrails.herokuapp.com/cosas/"+nombre+".json");
+		try {
+			HttpResponse response = client.execute(httpGet);
+			StatusLine statusLine = response.getStatusLine();
+			int statusCode = statusLine.getStatusCode();
+			if (statusCode == 200) {
+				HttpEntity entity = response.getEntity();
+				InputStream content = entity.getContent();
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(content));
+				String line;
+				while ((line = reader.readLine()) != null) {
+					builder.append(line);
+				}
+			} else {
+				//Log.e(ParseJSON.class.toString(), "Failed to download file");
+			}
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return builder.toString();
+	}
+	
+}
