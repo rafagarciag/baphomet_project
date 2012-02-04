@@ -30,11 +30,8 @@ public class MainActivity extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
 	
 	private EditText query;
-	private EditText nombre;
-	private EditText num;
-	private EditText numberer;
+	private EditText clip;
 	private Button busqueda;
-	private Button save;
 	private String datosJSON;
 	
     @Override
@@ -42,15 +39,11 @@ public class MainActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
             
-        query = (EditText)findViewById(R.id.nombre_clip);
+        query = (EditText)findViewById(R.id.query);
         busqueda = (Button)findViewById(R.id.busqueda);
-        nombre = (EditText)findViewById(R.id.nombre);
-        num = (EditText)findViewById(R.id.num);
-        numberer = (EditText)findViewById(R.id.numberer);
-        save = (Button)findViewById(R.id.save);
+        clip = (EditText)findViewById(R.id.clip);
         
         busqueda.setOnClickListener(this);
-        save.setOnClickListener(this);
         
         
     }
@@ -62,11 +55,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.busqueda:
 			
 			datosJSON = lecturaJSON(query.getText().toString());
-			nombre.setText(datosJSON);
+			clip.setText(datosJSON);
 			break;
 		
 		case R.id.save:
-			escribeJSON();
+			//escribeJSON();
 			break;
 			
 		
@@ -77,7 +70,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		StringBuilder builder = new StringBuilder();
 		HttpClient client = new DefaultHttpClient();
 		HttpGet httpGet = new HttpGet(
-				"http://droidrails.herokuapp.com/cosas/"+nombre+".json");
+				"http://192.168.1.103:3000/"+nombre+".json");
 		try {
 			HttpResponse response = client.execute(httpGet);
 			StatusLine statusLine = response.getStatusLine();
@@ -103,10 +96,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 	
 	public void escribeJSON(){
-		DefaultHttpClient client = new DefaultHttpClient();
+		/*DefaultHttpClient client = new DefaultHttpClient();
 
 		/** FOR LOCAL DEV   HttpPost post = new HttpPost("http://192.168.0.186:3000/events"); //works with and without "/create" on the end */
-		HttpPost post = new HttpPost("http://droidrails.herokuapp.com/cosas");
+		/*HttpPost post = new HttpPost("http://droidrails.herokuapp.com/cosas");
 	    JSONObject holder = new JSONObject();
 	    JSONObject datosJSON = new JSONObject();
 
@@ -158,7 +151,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	        	//Log.e("IO E",""+e);
 	            e.printStackTrace();
 	        }
-	    }
+	    }*/
 	}
 	
 }

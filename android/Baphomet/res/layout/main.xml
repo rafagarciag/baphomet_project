@@ -10,7 +10,7 @@
         android:text="Ingresa el nombre de tu OctoClip" />
 
     <EditText
-        android:id="@+id/nombre_clip"
+        android:id="@+id/query"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -24,26 +24,16 @@
         android:text="Release the KRAKEN" />
 
     <EditText
-        android:id="@+id/nombre"
+        android:id="@+id/clip"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/num"
-        android:layout_width="52dp"
         android:layout_height="wrap_content"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/numberer"
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:inputType="number" />
+        android:layout_weight="0.26"
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SAVE" />
+        android:text="Update" />
 
 </LinearLayout>

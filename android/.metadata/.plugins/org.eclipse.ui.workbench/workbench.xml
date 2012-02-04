@@ -42,7 +42,7 @@
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="/home/guayo/Desktop/baphomet_project/android/Baphomet/src/com/baphomet/octocopy/MainActivity.java" title="MainActivity.java" tooltip="Baphomet/src/com/baphomet/octocopy/MainActivity.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Baphomet/src/com/baphomet/octocopy/MainActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3756" selectionTopPixel="1308"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2011" selectionTopPixel="468"/>
 </editor>
 <editor id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" partName="main.xml" path="/home/guayo/Desktop/baphomet_project/android/Baphomet/res/layout/main.xml" title="main.xml" tooltip="Baphomet/res/layout/main.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Baphomet/res/layout/main.xml"/>
@@ -254,43 +254,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Baphomet/res/layout/main.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Baphomet/res/layout/main.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/Baphomet/AndroidManifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Baphomet/res/layout/main.xml"/>
 </editors>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="847" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="766" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="845" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position/>
-</item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="0">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="993" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="969" y="26"/>
-</item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="0">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="876" y="0"/>
-</item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="987" y="0"/>
-</item>
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="1046" y="0"/>
 </item>
@@ -380,8 +345,36 @@
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="3730" y="0"/>
 </item>
-<item active="true" historyLabel="MainActivity.java" index="0">
+<item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="3756" y="0"/>
+</item>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="994" y="0"/>
+</item>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1741" y="55"/>
+</item>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1741" y="55"/>
+</item>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="2011" y="0"/>
+</item>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1729" y="0"/>
+</item>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1729" y="0"/>
+</item>
+<item historyLabel="main.xml" index="6"/>
+<item active="true" historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="2011" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
