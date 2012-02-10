@@ -9,13 +9,15 @@ class PastebinController < ApplicationController
 		name = params[:name]
 		
 		#Remove spaces
-		name.strip
+		name.strip!
+		#Change spaces by underscores
+		name.gsub!(" ","_")
 		
 		if Pastebin.find_by_url(name).nil?
 			#create the new pastebin
 			@pastebin = Pastebin.new
 			@pastebin.url = name
-			@pastebin.content = "START TYPING HERE"
+			@pastebin.content = "\n\n"
 
 			#if everything goes perfectly smooth...
 			if @pastebin.save
