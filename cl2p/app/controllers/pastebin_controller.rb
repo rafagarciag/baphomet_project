@@ -36,7 +36,7 @@ class PastebinController < ApplicationController
 		if !params[:new].nil?
 			respond_to do |format|
 				format.html { redirect_to :action => 'create', :name => params[:name] }
-				format.json { render json: @pastebin }
+				format.json { render json => @pastebin }
 			end
 		end
 	end
