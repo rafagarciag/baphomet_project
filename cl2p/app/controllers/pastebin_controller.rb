@@ -36,6 +36,7 @@ class PastebinController < ApplicationController
 		if !params[:new].nil?
 			respond_to do |format|
 				format.html { redirect_to :action => 'create', :name => params[:name] }
+				format.json { render json: @pastebin }
 			end
 		end
 	end
@@ -43,7 +44,7 @@ class PastebinController < ApplicationController
 	def update
 
 		@pastebin = Pastebin.find(params[:id]) 
-		puts "======================================================\n\n======================================================"+params[:userId]
+
 		respond_to do |format|
 			if @pastebin.update_attributes(params[:pastebin])
 				if @pastebin.user_id.nil? && ( !@pastebin.visible || !@pastebin.editable )
