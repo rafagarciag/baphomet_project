@@ -7,6 +7,10 @@ class PastebinController < ApplicationController
 	
 		#must validate the integrity of url to prevent sql injection attacks
 		name = params[:name]
+		
+		#Remove spaces
+		name.strip
+		
 		if Pastebin.find_by_url(name).nil?
 			#create the new pastebin
 			@pastebin = Pastebin.new
@@ -39,7 +43,7 @@ class PastebinController < ApplicationController
 	def update
 
 		@pastebin = Pastebin.find(params[:id]) 
-		puts "======================================================\n\n========================================================POLLON   "+params[:userId]
+		puts "======================================================\n\n======================================================"+params[:userId]
 		respond_to do |format|
 			if @pastebin.update_attributes(params[:pastebin])
 				if @pastebin.user_id.nil? && ( !@pastebin.visible || !@pastebin.editable )
