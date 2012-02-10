@@ -9,13 +9,145 @@
 			</h3>
 			<ul class="nav secondary-nav">
 				<% if !user_signed_in? %>
-					<li><%= link_to "Sign up", new_user_registration_path, :class => 'links' %></li>
-					<li><%= link_to "Sign in", new_user_session_path, :class => 'links' %></li>
+					<li><button data-controls-modal="modal-sign-up" data-backdrop="true" data-keyboard="true" class="btn info">Sign Up</button></li>
+					<li><button data-controls-modal="modal-sign-in" data-backdrop="true" data-keyboard="true" class="btn danger">Sign In</button></li>
+					<li><button data-controls-modal="modal-for-fun" data-backdrop="true" data-keyboard="true" class="btn success">WELCOME TO 8COPY</button></li>
 				<% else %>
 					<li> Hello <%= current_user.username %> </li>
-					<li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'links' %> </li>
+					<li><button class="btn warning"><%= link_to "Sign out", destroy_user_session_path, :method => :delete%></button></li>
 				<% end %>
 			</ul>
 		</div>
 	</div>
 </div>
+
+
+<div id="modal-sign-in" class="modal hide fade">
+	<div class="modal-header">
+		<a href="#" class="close">&times;</a>
+	<h3>Sign In</h3>
+	</div>
+	<div class="modal-body">
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  			<div>
+				<%= f.label :email %><br />
+  				<%= f.email_field :email %>
+			</div>
+  			<div>
+				<%= f.label :password %><br />
+  				<%= f.password_field :password %>
+			</div>
+  			<% if devise_mapping.rememberable? -%>
+    				<div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  			<% end -%>
+			<br />
+			OR SIGN IN USING:
+			<ul id="header-links">
+				<li class="header-options"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'links'  %></li>
+				<li class="header-options"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :class => 'links'  %></li>
+				<li class="header-options"><%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), :class => 'links'  %></li>
+			</ul>
+			<%= f.submit "Sign in" %>
+		<% end %>
+	</div>
+	<div class="modal-footer">
+		Don't have an account, <b>bitch</b>? <%= link_to "Sign up now!", new_user_registration_path %>
+	</div>
+</div>
+
+<div id="modal-sign-up" class="modal hide fade">
+	<div class="modal-header">
+		<a href="#" class="close">&times;</a>
+	<h3>Sign In</h3>
+	</div>
+	<div class="modal-body">
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			<%= devise_error_messages! %>
+
+			<div>
+				<%= f.label :username %><br />
+				<%= f.text_field :username %>
+			</div>
+
+			<div>
+				<%= f.label :email %><br />
+  				<%= f.email_field :email %>
+			</div>
+
+			<div>
+				<%= f.label :password %><br />
+				<%= f.password_field :password %>
+			</div>
+
+			<div>
+				<%= f.label :password_confirmation %><br />
+				<%= f.password_field :password_confirmation %>
+			</div>
+			<br />
+			<div>The following fields are optional to fill. They will be used for statistical purposes only.<br /></div>
+			<br />
+
+			<div><%= f.label :age %>
+				<br />
+  				<%= f.text_field :age %>
+			</div>
+
+			<div>
+				<%= f.label :gender %><br />
+				<%= f.radio_button :gender, 'M', :checked => true %> 
+				<%= label :gender, 'M' %>
+				<%= f.radio_button :gender, 'F' %>
+				<%= label :gender, 'F' %>
+			</div>
+
+			<div>
+				<%= f.label :country %><br />
+				<%= f.country_select :country %>
+			</div>
+
+			<div>
+				I use or want to use this website because...<br />
+				<%= f.radio_button :whyUse, 'I want to share text' %> 
+				<%= label :gender, 'I want to share text' %><br />
+				<%= f.radio_button :whyUse, 'I am a programmer and want to share code with others' %> 
+				<%= label :gender, 'I am a programmer and want to share code with others' %><br />
+				<%= f.radio_button :whyUse, 'I am a programmer and want to share code across my own computers' %> 
+				<%= label :gender, 'I am a programmer and want to share code across my own computers' %><br />
+				<%= f.radio_button :whyUse, 'I just need an online notepad' %> 
+				<%= label :gender, 'I just need an online notepad' %><br />
+				<%= f.radio_button :whyUse, 'Just curious' %> 
+				<%= label :gender, 'Just curious' %><br />
+				<%= f.radio_button :whyUse, 'Other', :checked => true %>
+				<%= label :gender, 'Other' %><br />
+			</div>
+
+			<div><%= f.submit "Sign up" %></div>
+		<% end %>
+	</div>
+	<div class="modal-footer">
+		Too lazy to sign up, <b>bitch</b>? Why not try logging in with the following choices?
+		<ul id="header-links">
+				<li class="header-options"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'links'  %></li>
+				<li class="header-options"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :class => 'links'  %></li>
+				<li class="header-options"><%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), :class => 'links'  %></li>
+		</ul>
+	</div>
+</div>
+
+<div id="modal-for-fun" class="modal hide fade">
+	<div class="modal-header">
+		<a href="#" class="close">&times;</a>
+	<h3>WELCOME TO 8COPY</h3>
+	</div>
+	<div class="modal-body">
+		<object width="480" height="274"><param name="movie" value="http://www.youtube.com/v/gbDT_6MNa_U?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/gbDT_6MNa_U?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="480" height="274" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+	</div>
+	<div class="modal-footer">
+		This is a video demonstration of 8copy's current secretaries.
+	</div>
+</div>
+
+          
+
+
+

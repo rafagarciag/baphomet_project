@@ -4,10 +4,10 @@ gem 'rails', '3.1.1.rc2'
 gem 'therubyracer'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
 gem 'devise'
 gem 'sqlite3'
 gem 'country-select', :path => 'vendor/plugins/rails-country-select' #the select country plugin
+
 gem 'json'
 
 #Gem for Facebook authentication
@@ -28,7 +28,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', "~>1.0.19"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

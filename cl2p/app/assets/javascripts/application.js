@@ -6,4 +6,20 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require ../../assets/javascripts/edit_area/edit_area_full.js
+$(document).ready(function() {
+    $(".danger").click(function() {
+        $('#modal-sign-in').modal()
+    })
+    
+    $(".info").click(function() {
+        $('#modal-sign-up').modal()
+    })
+
+    $(".success").click(function() {
+        $('#modal-for-fun').modal()
+    })
+
+});
+
+
