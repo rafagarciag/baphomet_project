@@ -19,6 +19,8 @@ gem 'omniauth-twitter'
 #Gem for Github authentication
 gem 'omniauth-github'
 
+#Gem for integration form_for tag with Bootstrap
+gem 'twitter_bootstrap_form_for'
 
 # Gems used only for assets and not required
 # in production environments by default.

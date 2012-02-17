@@ -1,57 +1,66 @@
-<h2>Sign up</h2>
+<br />
+<div class="row">
+	<div class="span6">
+	<h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+	<%= twitter_bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			
+		<% devise_error_messages! %>
+	
+		<%= f.text_field :username, :placeholder => 'choose_a_fancy_username' %>
+		<br />
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+		<%= f.email_field :email, :placeholder => 'me@example.com' %>
+		<br />
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+		<%= f.password_field :password %>
+		<br />
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+		<%= f.password_field :password_confirmation %>
+		<br />
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+		<p>
+		/*  ========================================
+		<br />
+		The following fields are optional to fill. <br />
+		They will be used for statistical purposes only, do not worry.
+		<br />
+		=======================================  */
+		</p>
+	
+		<%= f.text_field :age, :class=>"span1" %>
+		<br />
+	
+		<%= f.toggles 'Gender' do %>
+			<%= f.radio_button :gender, 'Male', :m, :checked => true %> 
+			<%= f.radio_button :gender, 'Female', :f %>
+		<% end %>
 
-  <br />
-  <div>The following fields are optional to fill. They will be used for statistical purposes only.<br /></div>
-  <br />
+		<%= f.country_select :country %>
 
-  <div><%= f.label :age %><br />
-  <%= f.text_field :age %></div>
+		<%= f.toggles 'I use or want to use this website because...' do %>
+			<%= f.radio_button :whyUse, 'I want to share text', :checked => false %> 
 
-  <div>
-	  <%= f.label :gender %><br />
-	  <%= f.radio_button :gender, 'M', :checked => true %> 
-	  <%= label :gender, 'M' %>
-	  <%= f.radio_button :gender, 'F' %>
-	  <%= label :gender, 'F' %>
-  </div>
+			<%= f.radio_button :whyUse, 'I am a programmer and want to share code with others', :checked => false %> 
 
-  <div>
-  	<%= f.label :country %><br />
-	<%= f.country_select :country %>
-  </div>
+			<%= f.radio_button :whyUse, 'I am a programmer and want to share code across my own computers', :checked => false %> 
 
-  <div>
-	  I use or want to use this website because...<br />
-	  <%= f.radio_button :whyUse, 'I want to share text' %> 
-	  <%= label :gender, 'I want to share text' %><br />
-	  <%= f.radio_button :whyUse, 'I am a programmer and want to share code with others' %> 
-	  <%= label :gender, 'I am a programmer and want to share code with others' %><br />
-	  <%= f.radio_button :whyUse, 'I am a programmer and want to share code across my own computers' %> 
-	  <%= label :gender, 'I am a programmer and want to share code across my own computers' %><br />
-	  <%= f.radio_button :whyUse, 'I just need an online notepad' %> 
-	  <%= label :gender, 'I just need an online notepad' %><br />
-	  <%= f.radio_button :whyUse, 'Just curious' %> 
-	  <%= label :gender, 'Just curious' %><br />
-	  <%= f.radio_button :whyUse, 'Other', :checked => true %>
-	  <%= label :gender, 'Other' %><br />
-  </div>
+			<%= f.radio_button :whyUse, 'I just need an online notepad', :checked => false %> 
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+			<%= f.radio_button :whyUse, 'Just curious', :checked => false %> 
+		
+			<%= f.radio_button :whyUse, 'Other', :checked => true %>
+		<% end %>
+	
+		<%= f.submit "Sign up", :class=>"btn" %>
+	<% end %>
+	</div>
+	<div class="span2">
+	&nbsp;
+	</div>
+	<div class="span4">
+		<h2>Hello there</h2>
+		<p> You can also sign in using your favorite account, including </p>
+	</div>	
 
-
+</div>

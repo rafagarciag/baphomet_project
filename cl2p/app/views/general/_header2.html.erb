@@ -9,8 +9,12 @@
 			</h3>
 			<ul class="nav secondary-nav">
 				<% if !user_signed_in? %>
-					<li><button data-controls-modal="modal-sign-up" data-backdrop="true" data-keyboard="true" class="btn info">Sign Up</button></li>
-					<li><button data-controls-modal="modal-sign-in" data-backdrop="true" data-keyboard="true" class="btn danger">Sign In</button></li>
+					<li>
+						<%= button_to "Sign Up", new_user_registration_path, :method => "get", :class => "btn info" %>
+					</li>
+					<li>
+						<button data-controls-modal="modal-sign-in" data-backdrop="true" data-keyboard="true" class="btn danger">Sign In</button>
+					</li>
 					<li><button data-controls-modal="modal-for-fun" data-backdrop="true" data-keyboard="true" class="btn success">WELCOME TO 8COPY</button></li>
 				<% else %>
 					<li> Hello <%= current_user.username %> </li>
@@ -28,18 +32,17 @@
 	<h3>Sign In</h3>
 	</div>
 	<div class="modal-body">
-		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  			<div>
-				<%= f.label :email %><br />
+		<%= twitter_bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
   				<%= f.email_field :email %>
-			</div>
-  			<div>
-				<%= f.label :password %><br />
+
   				<%= f.password_field :password %>
-			</div>
-  			<% if devise_mapping.rememberable? -%>
-    				<div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  			<% end -%>
+
+  			<% if devise_mapping.rememberable? %>
+  				<%= f.toggles 'Remember me' do %>
+    				<%= f.check_box :remember_me, ' '%>
+    			<% end %>
+  			<% end %>
 			<br />
 			OR SIGN IN USING:
 			<ul id="header-links">
@@ -51,81 +54,70 @@
 		<% end %>
 	</div>
 	<div class="modal-footer">
-		Don't have an account, <b>bitch</b>? <%= link_to "Sign up now!", new_user_registration_path %>
+		Don't have an account, <b>yet</b>? <%= link_to "Sign up now!", new_user_registration_path %>
 	</div>
 </div>
 
 <div id="modal-sign-up" class="modal hide fade">
 	<div class="modal-header">
 		<a href="#" class="close">&times;</a>
-	<h3>Sign In</h3>
+	<h3>Sign Up</h3>
 	</div>
 	<div class="modal-body">
-		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		<%= twitter_bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			
 			<%= devise_error_messages! %>
-
-			<div>
-				<%= f.label :username %><br />
-				<%= f.text_field :username %>
-			</div>
-
-			<div>
-				<%= f.label :email %><br />
-  				<%= f.email_field :email %>
-			</div>
-
-			<div>
-				<%= f.label :password %><br />
-				<%= f.password_field :password %>
-			</div>
-
-			<div>
-				<%= f.label :password_confirmation %><br />
-				<%= f.password_field :password_confirmation %>
-			</div>
-			<br />
-			<div>The following fields are optional to fill. They will be used for statistical purposes only.<br /></div>
+			
+			<%= f.text_field :username, :placeholder => 'choose_a_fancy_username' %>
 			<br />
 
-			<div><%= f.label :age %>
-				<br />
-  				<%= f.text_field :age %>
-			</div>
+	  		<%= f.email_field :email, :placeholder => 'me@example.com' %>
+			<br />
 
-			<div>
-				<%= f.label :gender %><br />
-				<%= f.radio_button :gender, 'M', :checked => true %> 
-				<%= label :gender, 'M' %>
-				<%= f.radio_button :gender, 'F' %>
-				<%= label :gender, 'F' %>
-			</div>
+			<%= f.password_field :password %>
+			<br />
 
-			<div>
-				<%= f.label :country %><br />
-				<%= f.country_select :country %>
-			</div>
+			<%= f.password_field :password_confirmation %>
+			<br />
 
-			<div>
-				I use or want to use this website because...<br />
-				<%= f.radio_button :whyUse, 'I want to share text' %> 
-				<%= label :gender, 'I want to share text' %><br />
-				<%= f.radio_button :whyUse, 'I am a programmer and want to share code with others' %> 
-				<%= label :gender, 'I am a programmer and want to share code with others' %><br />
-				<%= f.radio_button :whyUse, 'I am a programmer and want to share code across my own computers' %> 
-				<%= label :gender, 'I am a programmer and want to share code across my own computers' %><br />
-				<%= f.radio_button :whyUse, 'I just need an online notepad' %> 
-				<%= label :gender, 'I just need an online notepad' %><br />
-				<%= f.radio_button :whyUse, 'Just curious' %> 
-				<%= label :gender, 'Just curious' %><br />
+			<p>
+			/*  ===========================================================
+			<br />
+			The following fields are optional to fill. <br />
+			They will be used for statistical purposes only, do not worry.
+			<br />
+			===========================================================  */
+			</p>
+			
+	  		<%= f.text_field :age, :class=>"span1" %>
+  			<br />
+  			
+  			<%= f.toggles 'Gender' do %>
+				<%= f.radio_button :gender, 'Male', :m, :checked => true %> 
+				<%= f.radio_button :gender, 'Female', :f %>
+			<% end %>
+
+			<%= f.country_select :country %>
+	
+			<%= f.toggles 'I use or want to use this website because...' do %>
+				<%= f.radio_button :whyUse, 'I want to share text', :checked => false %> 
+
+				<%= f.radio_button :whyUse, 'I am a programmer and want to share code with others', :checked => false %> 
+
+				<%= f.radio_button :whyUse, 'I am a programmer and want to share code across my own computers', :checked => false %> 
+
+				<%= f.radio_button :whyUse, 'I just need an online notepad', :checked => false %> 
+
+				<%= f.radio_button :whyUse, 'Just curious', :checked => false %> 
+				
 				<%= f.radio_button :whyUse, 'Other', :checked => true %>
-				<%= label :gender, 'Other' %><br />
-			</div>
-
-			<div><%= f.submit "Sign up" %></div>
+			<% end %>
+  			
+			<%= f.submit "Sign up", :class=>"btn" %>
 		<% end %>
 	</div>
 	<div class="modal-footer">
-		Too lazy to sign up, <b>bitch</b>? Why not try logging in with the following choices?
+		Too lazy to sign up? Why not try logging in with the following choices?
 		<ul id="header-links">
 				<li class="header-options"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'links'  %></li>
 				<li class="header-options"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :class => 'links'  %></li>
