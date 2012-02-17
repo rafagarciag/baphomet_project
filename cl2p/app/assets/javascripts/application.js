@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require ../../assets/javascripts/edit_area/edit_area_full.js
+//= require ../../assets/javascripts/tiny_mce/tiny_mce.js
 $(document).ready(function() {
     $(".danger").click(function() {
         $('#modal-sign-in').modal()
