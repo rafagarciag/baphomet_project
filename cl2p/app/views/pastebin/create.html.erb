@@ -1,5 +1,22 @@
 <%= @message %>
 <script type="text/javascript">
+//jQuery(function($) {
+//  $(document).ready(function() {
+ //   $("#pastebin_edit")
+ //     .bind('ajax:loading', function() {alert("loading!");})
+//      .bind('ajax:success', function(data, status, xhr) {alert("success!");})
+//      .bind('ajax:failure', function(xhr, status, error) {alert("failure!");})
+ //     .bind('ajax:complete', function() {alert("complete!");});
+//  });
+//});
+var autosave = window.setInterval("autosaveForm()", 1000);
+
+function autosaveForm() {
+  $('#pastebin_edit form[data-remote]').submit();
+}
+
+
+
 tinyMCE.init({
         // General options
         mode : "exact",
@@ -153,7 +170,7 @@ tinyMCE.init({
 
 
 <% if userId == @pastebin.user_id || @pastebin.editable %>
-	<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id, :userId => userId }, :method => :post do |p| %>
+	<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id, :userId => userId }, :remote => 'true', :method => :post do |p| %>
 		<% if userId == @pastebin.user_id || @pastebin.visible %>
 			<div class="toolbar" >
 				<br /><br />
@@ -193,7 +210,8 @@ tinyMCE.init({
 				<br />
 				<%= p.submit %>
 			</div>
-
+			<div id='status' style='display:none;'>Sending ...</div>
+			<br />
 			<div class="tabbable">
 			  <ul class="nav nav-pills">
 			    <li class="active"><a href="#1" data-toggle="tab">Code</a></li>
@@ -204,7 +222,7 @@ tinyMCE.init({
 				<%= p.text_area :content, { :id => "pastebinText", :wrap => "off", :style => "visibility:hidden" }%> 
 			    </div>
 			    <div class="tab-pane" id="2">
-			      <textarea id="richText"><%= @pastebin.content %></textarea>
+			      <%= p.text_area :content, { :id => "richText", :wrap => "off", :style => "visibility:hidden" }%> 
 			    </div>
 			  </div>
 			</div>
