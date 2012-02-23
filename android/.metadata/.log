@@ -587,3 +587,28 @@ Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.pa
 
 !ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 20:56:00.652
 !MESSAGE Could not add repository index
+!SESSION 2012-02-22 18:16:18.545 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.612
+!MESSAGE Error changing index details workspace://
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.618
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.632
+!MESSAGE Error changing index details file:/home/guayo/.m2/repository/
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.633
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.659
+!MESSAGE Error changing index details central|http://repo1.maven.org/maven2
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.661
+!MESSAGE Could not add repository index

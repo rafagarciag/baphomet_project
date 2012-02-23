@@ -33,7 +33,11 @@ public class MainActivity extends Activity implements OnClickListener {
 	private EditText clip;
 	private Button busqueda;
 	private Button update;
-	private String datosJSON;
+	
+	
+	private String url = "http://10.16.104.221:3000/";
+	private JSONObject datosJSON;
+	private JSONObject octoclip;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,8 +61,15 @@ public class MainActivity extends Activity implements OnClickListener {
 		switch(v.getId()){
 		case R.id.busqueda:
 			
-			datosJSON = lecturaJSON(query.getText().toString());
-			clip.setText(datosJSON);
+			try{
+				datosJSON = new JSONObject(lecturaJSON(url+query.getText().toString()+".json"));
+				octoclip = datosJSON.getJSONObject("octoclip");
+				clip.setText(octoclip.getString("content"));
+			}
+			catch(JSONException e)        {
+				Log.e("log_tag", "Error parsing data "+e.toString());
+			}
+			
 			break;
 		
 		case R.id.save:
@@ -70,11 +81,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 	}
 	
-	public String lecturaJSON(String nombre) {
+	public String lecturaJSON(String url) {
 		StringBuilder builder = new StringBuilder();
 		HttpClient client = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet(
-				"http://10.16.104.221:3000/"+nombre+".json");
+		HttpGet httpGet = new HttpGet(url);
 		try {
 			HttpResponse response = client.execute(httpGet);
 			StatusLine statusLine = response.getStatusLine();
@@ -110,7 +120,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	    try {	
 	    	datosJSON.put("content", clip.getText().toString());
 	    	datosJSON.put("url", nombre);
-	    	datosJSON.put("id", "14");
+	    	datosJSON.put("id", "16");
 
 		    holder.put("pastebin", datosJSON);
 
@@ -122,7 +132,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
 	    } catch (UnsupportedEncodingException e) {
-	    	//Log.e("Error",""+e);
+	    	Log.e("Error",""+e);
 	        e.printStackTrace();
 	    } catch (JSONException js) {
 	    	js.printStackTrace();
@@ -134,10 +144,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	        response = client.execute(post);
 	    } catch (ClientProtocolException e) {
 	        e.printStackTrace();
-	        //Log.e("ClientProtocol",""+e);
+	        Log.e("ClientProtocol",""+e);
 	    } catch (IOException e) {
 	        e.printStackTrace();
-	        //Log.e("IO",""+e);
+	        Log.e("IO",""+e);
 	    }
 
 	    HttpEntity entity = response.getEntity();
@@ -146,7 +156,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	        try {
 	            entity.consumeContent();
 	        } catch (IOException e) {
-	        	//Log.e("IO E",""+e);
+	        	Log.e("IO E",""+e);
 	            e.printStackTrace();
 	        }
 	    }
