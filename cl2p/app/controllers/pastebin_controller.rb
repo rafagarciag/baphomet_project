@@ -55,6 +55,7 @@ class PastebinController < ApplicationController
 					@pastebin.update_attributes(:user_id => nil)					
 				end
 				format.html { redirect_to :action => 'create', :name => @pastebin['url'] }
+				format.json { head :no_content }
 			else
 				@message = "Error updating." 
 				format.html {redirect_to :action => 'create', :name => @pastebin['url'] }

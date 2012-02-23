@@ -32,6 +32,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private EditText query;
 	private EditText clip;
 	private Button busqueda;
+	private Button update;
 	private String datosJSON;
 	
     @Override
@@ -41,9 +42,11 @@ public class MainActivity extends Activity implements OnClickListener {
             
         query = (EditText)findViewById(R.id.query);
         busqueda = (Button)findViewById(R.id.busqueda);
+        update = (Button)findViewById(R.id.save);
         clip = (EditText)findViewById(R.id.clip);
         
         busqueda.setOnClickListener(this);
+        update.setOnClickListener(this);
         
         
     }
@@ -59,7 +62,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		
 		case R.id.save:
-			//escribeJSON();
+			escribeJSON(query.getText().toString());
+			update.setText("Y asi");
 			break;
 			
 		
@@ -70,7 +74,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		StringBuilder builder = new StringBuilder();
 		HttpClient client = new DefaultHttpClient();
 		HttpGet httpGet = new HttpGet(
-				"http://192.168.1.103:3000/"+nombre+".json");
+				"http://10.16.104.221:3000/"+nombre+".json");
 		try {
 			HttpResponse response = client.execute(httpGet);
 			StatusLine statusLine = response.getStatusLine();
@@ -95,30 +99,24 @@ public class MainActivity extends Activity implements OnClickListener {
 		return builder.toString();
 	}
 	
-	public void escribeJSON(){
-		/*DefaultHttpClient client = new DefaultHttpClient();
+	public void escribeJSON(String nombre){
+		DefaultHttpClient client = new DefaultHttpClient();
 
 		/** FOR LOCAL DEV   HttpPost post = new HttpPost("http://192.168.0.186:3000/events"); //works with and without "/create" on the end */
-		/*HttpPost post = new HttpPost("http://droidrails.herokuapp.com/cosas");
+		HttpPost post = new HttpPost("http://10.16.104.221:3000/"+nombre+".json");
 	    JSONObject holder = new JSONObject();
 	    JSONObject datosJSON = new JSONObject();
 
-	    int iNum = 3;
-	    int iNumberer = 33;
-	    
-	    iNum = Integer.parseInt(num.getText().toString());
-	    iNumberer = Integer.parseInt(numberer.getText().toString());
-
 	    try {	
-	    	datosJSON.put("nombre", nombre.getText().toString());
-	    	datosJSON.put("num", iNum);
-	    	datosJSON.put("numberer", iNumberer);
+	    	datosJSON.put("content", clip.getText().toString());
+	    	datosJSON.put("url", nombre);
+	    	datosJSON.put("id", "14");
 
-		    holder.put("cosa", datosJSON);
+		    holder.put("pastebin", datosJSON);
 
-		    Log.e("Event JSON", "Event JSON = "+ holder.toString());
+		    Log.e("Pastebin JSON", "Pastebin JSON = "+ holder.toString());
 
-	    	StringEntity se = new StringEntity(holder.toString());
+	    	StringEntity se = new StringEntity(datosJSON.toString());
 	    	post.setEntity(se);
 	    	post.setHeader("Content-Type","application/json");
 
@@ -151,7 +149,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	        	//Log.e("IO E",""+e);
 	            e.printStackTrace();
 	        }
-	    }*/
+	    }
 	}
 	
 }

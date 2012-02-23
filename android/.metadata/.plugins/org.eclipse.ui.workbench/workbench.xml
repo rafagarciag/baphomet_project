@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="33" version="2.0">
+<workbench progressCount="32" version="2.0">
 <workbenchAdvisor/>
-<window height="752" maximized="true" width="1024" x="7" y="24">
+<window height="743" maximized="true" width="1020" x="470" y="111">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -42,7 +42,7 @@
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="/home/guayo/Desktop/baphomet_project/android/Baphomet/src/com/baphomet/octocopy/MainActivity.java" title="MainActivity.java" tooltip="Baphomet/src/com/baphomet/octocopy/MainActivity.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Baphomet/src/com/baphomet/octocopy/MainActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2011" selectionTopPixel="468"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3607" selectionTopPixel="1301"/>
 </editor>
 <editor id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" partName="main.xml" path="/home/guayo/Desktop/baphomet_project/android/Baphomet/res/layout/main.xml" title="main.xml" tooltip="Baphomet/res/layout/main.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Baphomet/res/layout/main.xml"/>
@@ -55,7 +55,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (5 items)"/>
+<category IMemento.internal.id="Warnings (11 items)"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
@@ -250,65 +250,9 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Baphomet/src/com/baphomet/octocopy/MainActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Baphomet/res/layout/main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/Baphomet/AndroidManifest.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Baphomet/res/layout/main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Baphomet/res/layout/main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/Baphomet/AndroidManifest.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Baphomet/res/layout/main.xml"/>
 </editors>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1046" y="0"/>
-</item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1046" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position/>
-</item>
-<item historyLabel="Baphomet Manifest" index="2"/>
-<item historyLabel="MainActivity.java" index="0">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1585" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1158" y="0"/>
-</item>
-<item historyLabel="main.xml" index="3"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1158" y="0"/>
-</item>
-<item historyLabel="Baphomet Manifest" index="2"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1158" y="0"/>
-</item>
-<item historyLabel="main.xml" index="4"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1659" y="0"/>
-</item>
-<item historyLabel="Baphomet Manifest" index="5"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1659" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1018" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1044" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1553" y="0"/>
-</item>
-<item historyLabel="Baphomet Manifest" index="5"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1553" y="0"/>
-</item>
-<item historyLabel="main.xml" index="4"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1553" y="0"/>
-</item>
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="1634" y="0"/>
 </item>
@@ -348,33 +292,94 @@
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="3756" y="0"/>
 </item>
-<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main.xml" index="1"/>
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="994" y="0"/>
 </item>
-<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main.xml" index="1"/>
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="1741" y="55"/>
 </item>
-<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main.xml" index="1"/>
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="1741" y="55"/>
 </item>
-<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main.xml" index="1"/>
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="2011" y="0"/>
 </item>
-<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main.xml" index="1"/>
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="1729" y="0"/>
 </item>
-<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main.xml" index="1"/>
 <item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="1729" y="0"/>
 </item>
-<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main.xml" index="1"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="2011" y="0"/>
+</item>
+<item historyLabel="main.xml" index="2"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1780" y="0"/>
+</item>
+<item historyLabel="main.xml" index="2"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1780" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1370" y="0"/>
+</item>
+<item historyLabel="main.xml" index="2"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1370" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3307" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1419" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1442" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1585" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3525" y="0"/>
+</item>
+<item historyLabel="main.xml" index="3"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3525" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3408" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3211" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3210" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3437" y="1"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3443" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3441" y="0"/>
+</item>
 <item active="true" historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="2011" y="0"/>
+<position info="not_deleted" x="3443" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
