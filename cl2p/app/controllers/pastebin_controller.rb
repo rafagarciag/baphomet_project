@@ -12,6 +12,8 @@ class PastebinController < ApplicationController
 		name.strip!
 		#Change spaces by underscores
 		name.gsub!(" ","_")
+		#Remove unwanted characters
+		name.gsub!(/[^a-zA-Z0-9_]/)
 		
 		if Pastebin.find_by_url(name).nil?
 			#create the new pastebin
@@ -22,8 +24,20 @@ class PastebinController < ApplicationController
 			#if everything goes perfectly smooth...
 			if @pastebin.save
 				@message = "Creating new pastebin #{name}"
+				#validates the homepage creation of a pastebin, which uses a special /new/:new route.
+				#while it would work without the following code, the route displayed on the browser would be /new/n
+				#and not /:name as it should be. So do not erase the following code!
+				if !params[:new].nil?
+					respond_to do |format|
+						format.html { redirect_to :action => 'create', :name => params[:name] }
+						format.json { render json => @pastebin }
+					end
+				end
 			else
 				@message = "Error while creating new pastebin"
+				respond_to do |format|
+					format.html { redirect_to :action=>'index', :controller=>'home' }
+				end
 			end
 			
 		#Edit method
@@ -32,15 +46,7 @@ class PastebinController < ApplicationController
 			@message = "#{name}"
 		end
 
-		#validates the homepage creation of a pastebin, which uses a special /new/:new route.
-		#while it would work without the following code, the route displayed on the browser would be /new/n
-		#and not /:name as it should be. So do not erase the following code!
-		if !params[:new].nil?
-			respond_to do |format|
-				format.html { redirect_to :action => 'create', :name => params[:name] }
-				format.json { render json => @pastebin }
-			end
-		end
+		
 	end
 
 	def update
