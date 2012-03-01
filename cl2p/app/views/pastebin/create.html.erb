@@ -1,30 +1,30 @@
-<%= @message %>
 <script type="text/javascript">
 //jQuery(function($) {
-//  $(document).ready(function() {
- //   $("#pastebin_edit")
- //     .bind('ajax:loading', function() {alert("loading!");})
-//      .bind('ajax:success', function(data, status, xhr) {alert("success!");})
-//      .bind('ajax:failure', function(xhr, status, error) {alert("failure!");})
- //     .bind('ajax:complete', function() {alert("complete!");});
-//  });
+  //$(document).ready(function() {
+    //$("#pastebin_edit")
+     // .bind('ajax:loading', function() {alert("loading!");})
+     // .bind('ajax:success', function(data, status, xhr) {alert("success!");})
+     // .bind('ajax:failure', function(xhr, status, error) {alert("failure!");})
+    //  .bind('ajax:complete', function() {alert("complete!");});
+  //});
 //});
-var autosave = window.setInterval("autosaveForm()", 1000);
-
+var autosave = window.setInterval("autosaveForm()", 11000);
+ //$("#pastebin_edit").live('submit.rails', function(e) { $("#pastebin_edit").trigger("submit.rails") });
 function autosaveForm() {
-  $('#pastebin_edit form[data-remote]').submit();
+  //$("#pastebin_edit").trigger("submit.rails");
+  document.getElementById("boton").click();
+ //$("#pastebin_edit").live('submit.rails', function(e) { $("#pastebin_edit").trigger("submit.rails") });
+//$('form').live('submit.rails', function(e) { ... });
 }
-
-
 
 tinyMCE.init({
         // General options
         mode : "exact",
         elements : "richText",
         theme : "advanced",
-	width : "910",
+	width : "930",
 	height : "700",
-        plugins : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+        plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
 
         // Theme options
         theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
@@ -54,8 +54,6 @@ tinyMCE.init({
                 staffid : "991234"
         }
 });
-</script>
-<script type="text/javascript">
    
 	// initialisation
 	editAreaLoader.init({
@@ -66,7 +64,7 @@ tinyMCE.init({
 		,word_wrap: true
 		,language: "en"
 		,syntax: "Java"	
-		,min_width: 910
+		,min_width: 938
 		,min_height: 700
 		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
 		,font_size: 14
@@ -153,13 +151,17 @@ tinyMCE.init({
 
 
 <% if @pastebin.errors.any? %>
-	<h2><%= pluralize(@pastebin.errors.count, "error") %> prohibited this item from being saved:</h2>
-	<ul>
-	<% @pastebin.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li>
-	<% end %>
-	</ul>
 
+	<div class="alert alert-error">
+		<strong>UPS!</strong> something went wrong here:
+		<br />
+		<ul>
+		<% @pastebin.errors.each do |msg| %>
+			<li><%= msg[1] %></li>
+		<% end %>
+		</ul>
+	</div>
+	
 <% end %>
 
 <% if user_signed_in? %>
@@ -170,7 +172,7 @@ tinyMCE.init({
 
 
 <% if userId == @pastebin.user_id || @pastebin.editable %>
-	<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id, :userId => userId }, :remote => 'true', :method => :post do |p| %>
+	<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id, :userId => userId }, :remote => 'true', :id => "pastebin_edit", :method => :post do |p| %>
 		<% if userId == @pastebin.user_id || @pastebin.visible %>
 			<div class="toolbar" >
 				<br /><br />
@@ -187,42 +189,37 @@ tinyMCE.init({
 					}(document,"script","twitter-wjs");
 				</script>
 				<br />
-				<br />
-				<b>Color scheme:</b>
-				<br />
-				<select>
-					<option value="clasic">Classic cl2p</option>
-					<option value="blue">Intense blue</option>
-					<option value="red">Furious red</option>
-					<option value="psychedelic">Psychedelic</option>
-					<option value="bnw">b&w</option>
-				</select>
 				<% if user_signed_in? %>
-					<br />
-					<br />
-					<%= p.check_box :visible %> <%= p.label :visible, "Visible to others" %>
-					<br />
-					<br />
-					<%= p.check_box :editable %> <%= p.label :editable, "Editable by others" %>
-					<br />
-					<br />
+					<label class="checkbox">
+						<%= p.check_box :visible %> <%= p.label :visible, "Visible to others" %>
+					</label>
+					<label class="checkbox">
+						<%= p.check_box :editable %> <%= p.label :editable, "Editable by others" %>
+					</label>
 				<% end %>
-				<br />
-				<%= p.submit %>
 			</div>
 			<div id='status' style='display:none;'>Sending ...</div>
 			<br />
+			<ul class="nav pull-right"  style="top:100px;">
+			  	<li><%= p.submit :id => "boton", :class=>"btn-primary" %></li>
+			</ul>
 			<div class="tabbable">
 			  <ul class="nav nav-pills">
 			    <li class="active"><a href="#1" data-toggle="tab">Code</a></li>
 			    <li><a href="#2" data-toggle="tab">Rich Text</a></li>
+			    <li><a href="#3" data-toggle="tab">Plain Text</a></li>
 			  </ul>
+			  <i class="icon-file"></i><b><%= @pastebin.url %></b>
 			  <div class="tab-content">
 			    <div class="tab-pane active" id="1">
 				<%= p.text_area :content, { :id => "pastebinText", :wrap => "off", :style => "visibility:hidden" }%> 
+				
 			    </div>
 			    <div class="tab-pane" id="2">
-			      <%= p.text_area :content, { :id => "richText", :wrap => "off", :style => "visibility:hidden" }%> 
+			      <%= p.text_area :richText, { :id => "richText", :wrap => "off", :style => "visibility:hidden" }%> 				
+			    </div>
+			    <div class="tab-pane" id="3">
+			      <%= p.text_area :plainText, { :id => "plainText", :wrap => "off" }%> 				
 			    </div>
 			  </div>
 			</div>

@@ -53,6 +53,7 @@ Cl2p::Application.routes.draw do
   root :to => 'home#index'
 
  # resources :pastebin
+  
   match '/:name' => 'pastebin#create', :via => :get
   match '/:name' => 'pastebin#update', :via => :post
   match '/new/:new' => 'pastebin#create', :via => :post
