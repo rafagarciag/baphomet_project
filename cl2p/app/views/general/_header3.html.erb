@@ -1,0 +1,134 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<h3>
+				<a class="brand" href="/">
+				<%= image_tag("ninja-icon.png", :alt => "Hello!") %>
+				8Copy
+				</a>
+			</h3>
+			<ul class="nav secondary-nav pull-right">
+				<% if !user_signed_in? %>
+					
+					<li>
+						<button data-controls-modal="modal-sign-in" data-backdrop="true" data-keyboard="true" class="btn-info">Sign In</button>
+					</li>
+					<li>
+						<%= button_to "Sign Up", new_user_registration_path, :method => "get", :class => "btn-success", :style=>"height:24px;padding-bottom:1px; padding-left:6px; padding-right:6px; padding-top:1px; " %>
+					</li>
+
+				<% else %>
+					<li class="usrname"> Hello there <%= current_user.username %> ! </li>
+					<li><button class="btn-warning"><%= link_to "Sign out", destroy_user_session_path, :method => :delete%></button></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div id="modal-sign-in" class="modal hide fade">
+	<div class="modal-header">
+		<a href="#" class="close">&times;</a>
+	<h3>Sign In</h3>
+	</div>
+	<div class="modal-body">
+		<%= twitter_bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+  				<%= f.email_field :email %>
+
+  				<%= f.password_field :password %>
+
+  			<% if devise_mapping.rememberable? %>
+  				<%= f.toggles 'Remember me' do %>
+    				<%= f.check_box :remember_me, ' '%>
+    			<% end %>
+  			<% end %>
+			<br />
+			OR SIGN IN USING:
+			<ul id="header-links">
+				<li class="header-options"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'links'  %></li>
+				<li class="header-options"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :class => 'links'  %></li>
+				<li class="header-options"><%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), :class => 'links'  %></li>
+			</ul>
+			<%= f.submit "Sign in" %>
+		<% end %>
+	</div>
+	<div class="modal-footer">
+		Don't have an account, <b>yet</b>? <%= link_to "Sign up now!", new_user_registration_path %>
+	</div>
+</div>
+
+<div id="modal-sign-up" class="modal hide fade">
+	<div class="modal-header">
+		<a href="#" class="close">&times;</a>
+	<h3>Sign Up</h3>
+	</div>
+	<div class="modal-body">
+		<%= twitter_bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			
+			<%= devise_error_messages! %>
+			
+			<%= f.text_field :username, :placeholder => 'choose_a_fancy_username' %>
+			<br />
+
+	  		<%= f.email_field :email, :placeholder => 'me@example.com' %>
+			<br />
+
+			<%= f.password_field :password %>
+			<br />
+
+			<%= f.password_field :password_confirmation %>
+			<br />
+
+			<p>
+			/*  ===========================================================
+			<br />
+			The following fields are optional to fill. <br />
+			They will be used for statistical purposes only, do not worry.
+			<br />
+			===========================================================  */
+			</p>
+			
+	  		<%= f.text_field :age, :class=>"span1" %>
+  			<br />
+  			
+  			<%= f.toggles 'Gender' do %>
+				<%= f.radio_button :gender, 'Male', :m, :checked => true %> 
+				<%= f.radio_button :gender, 'Female', :f %>
+			<% end %>
+
+			<%= f.country_select :country %>
+	
+			<%= f.toggles 'I use or want to use this website because...' do %>
+				<%= f.radio_button :whyUse, 'I want to share text', :checked => false %> 
+
+				<%= f.radio_button :whyUse, 'I am a programmer and want to share code with others', :checked => false %> 
+
+				<%= f.radio_button :whyUse, 'I am a programmer and want to share code across my own computers', :checked => false %> 
+
+				<%= f.radio_button :whyUse, 'I just need an online notepad', :checked => false %> 
+
+				<%= f.radio_button :whyUse, 'Just curious', :checked => false %> 
+				
+				<%= f.radio_button :whyUse, 'Other', :checked => true %>
+			<% end %>
+  			
+			<%= f.submit "Sign up", :class=>"btn" %>
+		<% end %>
+	</div>
+	<div class="modal-footer">
+		Too lazy to sign up? Why not try logging in with the following choices?
+		<ul id="header-links">
+				<li class="header-options"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'links'  %></li>
+				<li class="header-options"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :class => 'links'  %></li>
+				<li class="header-options"><%= link_to "Sign in with Github", user_omniauth_authorize_path(:github), :class => 'links'  %></li>
+		</ul>
+	</div>
+</div>
+
+
+          
+
+
+
