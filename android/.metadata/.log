@@ -531,3 +531,84 @@ Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.pa
 
 !ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-04 02:19:24.448
 !MESSAGE Could not add repository index
+!SESSION 2012-02-16 02:15:49.056 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-02-16 02:15:52.543
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 02:58:07.025
+!MESSAGE Error changing index details workspace://
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 02:58:07.032
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 02:58:07.051
+!MESSAGE Error changing index details file:/home/guayo/.m2/repository/
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 02:58:07.052
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 02:58:07.100
+!MESSAGE Error changing index details central|http://repo1.maven.org/maven2
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 02:58:07.100
+!MESSAGE Could not add repository index
+!SESSION 2012-02-16 19:03:39.467 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-02-16 19:03:42.919
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 20:56:00.487
+!MESSAGE Error changing index details workspace://
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 20:56:00.496
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 20:56:00.535
+!MESSAGE Error changing index details file:/home/guayo/.m2/repository/
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 20:56:00.537
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 20:56:00.651
+!MESSAGE Error changing index details central|http://repo1.maven.org/maven2
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-16 20:56:00.652
+!MESSAGE Could not add repository index
+!SESSION 2012-02-22 18:16:18.545 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.612
+!MESSAGE Error changing index details workspace://
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.618
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.632
+!MESSAGE Error changing index details file:/home/guayo/.m2/repository/
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.633
+!MESSAGE Could not add repository index
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.659
+!MESSAGE Error changing index details central|http://repo1.maven.org/maven2
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2012-02-22 19:17:35.661
+!MESSAGE Could not add repository index
