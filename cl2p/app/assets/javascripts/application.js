@@ -9,17 +9,14 @@
 //= require ../../assets/javascripts/edit_area/edit_area_full.js
 //= require ../../assets/javascripts/tiny_mce/tiny_mce.js
 $(document).ready(function() {
-    $(".danger").click(function() {
+    $(".btn-info").click(function() {
         $('#modal-sign-in').modal()
     })
     
-    $(".info").click(function() {
+    $("btn-success").click(function() {
         $('#modal-sign-up').modal()
     })
 
-    $(".success").click(function() {
-        $('#modal-for-fun').modal()
-    })
 
 });
 
