@@ -60,7 +60,7 @@ class PastebinController < ApplicationController
 				elsif !@pastebin.user_id.nil? && @pastebin.visible && @pastebin.editable 
 					@pastebin.update_attributes(:user_id => nil)					
 				end
-				format.html { redirect_to :action => 'create', :name => @pastebin['url'] }
+				format.html { redirect_to :action => 'create', :name => @pastebin['url'], :new => 'redirect' }
 				format.json { head :no_content }
 			else
 				@message = "Error updating." 

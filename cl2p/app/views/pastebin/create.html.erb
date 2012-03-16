@@ -213,7 +213,6 @@ tinyMCE.init({
 			  <div class="tab-content">
 			    <div class="tab-pane active" id="1">
 				<%= p.text_area :content, { :id => "pastebinText", :wrap => "off", :style => "visibility:hidden" }%> 
-				
 			    </div>
 			    <div class="tab-pane" id="2">
 			      <%= p.text_area :richText, { :id => "richText", :wrap => "off", :style => "visibility:hidden" }%> 				
@@ -229,7 +228,25 @@ tinyMCE.init({
 		<% end %>
 	<% end %>
 <% else %>
-	<textarea id="disabledPastebin" style="visibility:hidden"><%= @pastebin.content %></textarea>
+	<div class="tabbable">
+		<ul class="nav nav-pills">
+			<li class="active"><a href="#1" data-toggle="tab">Code</a></li>
+			<li><a href="#2" data-toggle="tab">Rich Text</a></li>
+			<li><a href="#3" data-toggle="tab">Plain Text</a></li>
+		</ul>
+		<i class="icon-file"></i><b><%= @pastebin.url %></b>
+		<div class="tab-content">
+			<div class="tab-pane active" id="1">
+				<textarea id="disabledPastebin" style="visibility:hidden"><%= @pastebin.content %></textarea>
+			</div>
+			<div class="tab-pane" id="2">
+				<textarea id="richText" style="visibility:hidden" disabled="disabled"><%= @pastebin.richText %></textarea>				
+			</div>
+			<div class="tab-pane" id="3">
+				<textarea id="plainText" style="visibility:hidden" disabled="disabled"><%= @pastebin.plainText %></textarea>				
+			</div>
+		</div>
+	</div>
 <% end %>
     
 
