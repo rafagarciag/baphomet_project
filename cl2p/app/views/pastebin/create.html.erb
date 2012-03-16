@@ -1,90 +1,4 @@
 <script type="text/javascript">
-//jQuery(function($) {
-  //$(document).ready(function() {
-    //$("#pastebin_edit")
-     // .bind('ajax:loading', function() {alert("loading!");})
-     // .bind('ajax:success', function(data, status, xhr) {alert("success!");})
-     // .bind('ajax:failure', function(xhr, status, error) {alert("failure!");})
-    //  .bind('ajax:complete', function() {alert("complete!");});
-  //});
-//});
-var autosave = window.setInterval("autosaveForm()", 11000);
- //$("#pastebin_edit").live('submit.rails', function(e) { $("#pastebin_edit").trigger("submit.rails") });
-function autosaveForm() {
-  //$("#pastebin_edit").trigger("submit.rails");
-  document.getElementById("boton").click();
- //$("#pastebin_edit").live('submit.rails', function(e) { $("#pastebin_edit").trigger("submit.rails") });
-//$('form').live('submit.rails', function(e) { ... });
-}
-
-tinyMCE.init({
-        // General options
-        mode : "exact",
-        elements : "richText",
-        theme : "advanced",
-	width : "930",
-	height : "700",
-        plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
-
-        // Theme options
-        theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
-        theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-        theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-        theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,blockquote,pagebreak,|,insertfile,insertimage",
-        theme_advanced_toolbar_location : "top",
-        theme_advanced_toolbar_align : "left",
-        theme_advanced_statusbar_location : "bottom",
-
-        // Skin options
-        skin : "o2k7",
-        skin_variant : "silver",
-
-        // Example content CSS (should be your site CSS)
-       // content_css : "css/example.css",
-
-        // Drop lists for link/image/media/template dialogs
-        template_external_list_url : "js/template_list.js",
-        external_link_list_url : "js/link_list.js",
-        external_image_list_url : "js/image_list.js",
-        media_external_list_url : "js/media_list.js",
-
-        // Replace values for the template plugin
-        template_replace_values : {
-                username : "Some User",
-                staffid : "991234"
-        }
-});
-   
-	// initialisation
-	editAreaLoader.init({
-		id: "pastebinText"	// id of the textarea to transform		
-		,start_highlight: true	// if start with highlight
-		,allow_resize: "false"
-		,allow_toggle: false
-		,word_wrap: true
-		,language: "en"
-		,syntax: "Java"	
-		,min_width: 938
-		,min_height: 700
-		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
-		,font_size: 14
-	});
-
-	// disabled Pastebin
-	editAreaLoader.init({
-		id: "disabledPastebin"		
-		,start_highlight: true
-		,allow_resize: "false"
-		,allow_toggle: false
-		,word_wrap: true
-		,language: "en"
-		,syntax: "Java"	
-		,is_editable: false	
-		,min_width: 910
-		,min_height: 600
-		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
-		,font_size: 14
-	});
 
 	// callback functions
 	function my_save(id, content){
@@ -174,6 +88,74 @@ tinyMCE.init({
 <% if userId == @pastebin.user_id || @pastebin.editable %>
 	<%= form_for @pastebin, :as => :pastebin, :url => { :controller => 'pastebin', :action => 'update', :id => @pastebin.id, :userId => userId }, :remote => 'true', :id => "pastebin_edit", :method => :post do |p| %>
 		<% if userId == @pastebin.user_id || @pastebin.visible %>
+			<script>
+// initialisation
+	editAreaLoader.init({
+		id: "pastebinText"	// id of the textarea to transform		
+		,start_highlight: true	// if start with highlight
+		,allow_resize: "false"
+		,allow_toggle: false
+		,word_wrap: true
+		,language: "en"
+		,syntax: "Java"	
+		,min_width: 938
+		,min_height: 700
+		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
+		,font_size: 14
+	});
+
+	tinyMCE.init({
+		// General options
+		mode : "exact",
+		elements : "richText",
+		theme : "advanced",
+		width : "930",
+		height : "700",
+		plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+
+		// Theme options
+		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+		theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,blockquote,pagebreak,|,insertfile,insertimage",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+
+		// Skin options
+		skin : "o2k7",
+		skin_variant : "silver",
+
+		// Example content CSS (should be your site CSS)
+	       // content_css : "css/example.css",
+
+		// Drop lists for link/image/media/template dialogs
+		template_external_list_url : "js/template_list.js",
+		external_link_list_url : "js/link_list.js",
+		external_image_list_url : "js/image_list.js",
+		media_external_list_url : "js/media_list.js",
+
+		// Replace values for the template plugin
+		template_replace_values : {
+		        username : "Some User",
+		        staffid : "991234"
+		}
+	});
+
+				//jQuery(function($) {
+				  //$(document).ready(function() {
+				    //$("#pastebin_edit")
+				     // .bind('ajax:loading', function() {alert("loading!");})
+				     // .bind('ajax:success', function(data, status, xhr) {alert("success!");})
+				     // .bind('ajax:failure', function(xhr, status, error) {alert("failure!");})
+				    //  .bind('ajax:complete', function() {alert("complete!");});
+				  //});
+				//});
+				var autosave = window.setInterval("autosaveForm()", 11000);
+				function autosaveForm() {
+				  document.getElementById("boton").click();
+				}
+			</script>
 			<div class="toolbar" >
 				<br /><br />
 				<a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out my 8copy!" data-hashtags="8copy">Tweet</a>
@@ -228,6 +210,62 @@ tinyMCE.init({
 		<% end %>
 	<% end %>
 <% else %>
+	<script type="text/javascript">
+	// disabled Pastebin
+	editAreaLoader.init({
+		id: "pastebinText"		
+		,start_highlight: true
+		,allow_resize: "false"
+		,allow_toggle: false
+		,word_wrap: true
+		,language: "en"
+		,syntax: "Java"	
+		,is_editable: false	
+		,min_width: 910
+		,min_height: 600
+		,toolbar: "syntax_selection, |, select_font, |, fullscreen, *, new_document,|, search, go_to_line, undo, redo, |, highlight, word_wrap"
+		,font_size: 14
+	});
+
+	tinyMCE.init({
+        // General options
+        mode : "exact",
+        elements : "richText",
+        theme : "advanced",
+	readonly: 1,
+	width : "930",
+	height : "700",
+        plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+
+        // Theme options
+        theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+        theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+        theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+        theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,blockquote,pagebreak,|,insertfile,insertimage",
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_toolbar_align : "left",
+        theme_advanced_statusbar_location : "bottom",
+
+        // Skin options
+        skin : "o2k7",
+        skin_variant : "silver",
+
+        // Example content CSS (should be your site CSS)
+       // content_css : "css/example.css",
+
+        // Drop lists for link/image/media/template dialogs
+        template_external_list_url : "js/template_list.js",
+        external_link_list_url : "js/link_list.js",
+        external_image_list_url : "js/image_list.js",
+        media_external_list_url : "js/media_list.js",
+
+        // Replace values for the template plugin
+        template_replace_values : {
+                username : "Some User",
+                staffid : "991234"
+        }
+});
+	</script>
 	<div class="tabbable">
 		<ul class="nav nav-pills">
 			<li class="active"><a href="#1" data-toggle="tab">Code</a></li>
@@ -237,13 +275,13 @@ tinyMCE.init({
 		<i class="icon-file"></i><b><%= @pastebin.url %></b>
 		<div class="tab-content">
 			<div class="tab-pane active" id="1">
-				<textarea id="disabledPastebin" style="visibility:hidden"><%= @pastebin.content %></textarea>
+				<textarea id="pastebinText" style="visibility:hidden"><%= @pastebin.content %></textarea>
 			</div>
 			<div class="tab-pane" id="2">
 				<textarea id="richText" style="visibility:hidden" disabled="disabled"><%= @pastebin.richText %></textarea>				
 			</div>
 			<div class="tab-pane" id="3">
-				<textarea id="plainText" style="visibility:hidden" disabled="disabled"><%= @pastebin.plainText %></textarea>				
+				<textarea id="plainText" disabled="disabled"><%= @pastebin.plainText %></textarea>				
 			</div>
 		</div>
 	</div>

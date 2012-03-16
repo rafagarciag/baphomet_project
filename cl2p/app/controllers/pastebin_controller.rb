@@ -44,6 +44,15 @@ class PastebinController < ApplicationController
 		else
 			@pastebin = Pastebin.find_by_url(name)
 			@message = "#{name}"
+			#validates the homepage creation of a pastebin, which uses a special /new/:new route.
+			#while it would work without the following code, the route displayed on the browser would be /new/n
+			#and not /:name as it should be. So do not erase the following code!
+			if !params[:new].nil?
+				respond_to do |format|
+					format.html { redirect_to :action => 'create', :name => params[:name] }
+					format.json { render json => @pastebin }
+				end
+			end
 		end
 
 		
@@ -64,7 +73,7 @@ class PastebinController < ApplicationController
 				format.json { head :no_content }
 			else
 				@message = "Error updating." 
-				format.html {redirect_to :action => 'create', :name => @pastebin['url'] }
+				format.html {redirect_to :action => 'create', :name => @pastebin['url'], :new => 'redirect' }
 			end
 		end
 	end
